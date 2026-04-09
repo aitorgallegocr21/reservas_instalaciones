@@ -1,0 +1,206 @@
+/* ==========================================================================
+   SECCIÓN DE MATCHMAKING
+   ========================================================================== */
+
+.matchmaking-section {
+    padding: 5rem 1.5rem;
+    background-color: var(--brand-secondary); /* Fondo inverso para separar secciones */
+    transition: background-color 0.3s ease;
+}
+
+[data-theme='dark'] .matchmaking-section {
+    background-color: #121212; /* Ajuste específico para modo oscuro */
+}
+
+/* Reutilización del contenedor de rejilla */
+.matchmaking-section .section-container {
+    max-width: 75rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+
+
+/* --- LISTA DE CARACTERÍSTICAS --- */
+
+.matchmaking-features {
+    list-style: none;
+    margin: 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid transparent; 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+/* Efecto de iluminación en Modo Oscuro */
+[data-theme='dark'] .feature-item:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-color: rgba(52, 152, 219, 0.2);
+}
+
+/* Efecto de iluminación en Modo Claro */
+.feature-item:hover {
+    background-color: rgba(255, 255, 255, 0.6); 
+    border-color: rgba(10, 77, 162, 0.1);
+    box-shadow: 0 4px 15px -5px rgba(10, 77, 162, 0.15);
+}
+
+/* Elevación suave del icono al iluminarse */
+.feature-item:hover .feature-icon-wrapper {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    color: var(--brand-primary);
+}
+
+/* Estilos base del icono para asegurar la transición */
+.feature-icon-wrapper {
+    background-color: var(--bg-header);
+    color: var(--brand-primary);
+    padding: 0.75rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.feature-icon-wrapper svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.feature-text h3 {
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.feature-text p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+
+
+/* --- BOCETO VISUAL (Matchmaking Sketch) --- */
+
+.matchmaking-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.visual-sketch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 450px;
+}
+
+.sketch-card {
+    background: var(--bg-header);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    flex: 1;
+    z-index: 2;
+}
+
+.avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    background: var(--brand-secondary);
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.line-placeholder {
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.line-placeholder.short { width: 60%; }
+.line-placeholder.long { width: 90%; }
+
+/* Conector y Animación */
+.match-connector {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.connection-line {
+    width: 100%;
+    fill: none;
+    stroke: var(--brand-primary);
+    stroke-width: 2;
+}
+
+.pulse-circle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+.match-badge {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+
+
+/* ==========================================================================
+   MEDIA QUERIES (Desktop)
+   ========================================================================== */
+@media (min-width: 64rem) {
+    .matchmaking-section .section-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+    }
+
+    .matchmaking-content {
+        order: 1; /* Texto a la izquierda */
+    }
+
+    .matchmaking-visual {
+        order: 2; /* Visual a la derecha */
+    }
+}

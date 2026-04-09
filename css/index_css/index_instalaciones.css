@@ -17,6 +17,8 @@
     align-items: center;
 }
 
+
+
 /* --- BLOQUE VISUAL (Izquierda) --- */
 
 .facilities-visual {
@@ -141,7 +143,7 @@
 
 
 
-/* --- Botón de Reserva --- */
+/* --- BOTÓN DE RESERVA --- */
 
 .btn-large {
     display: inline-flex;
