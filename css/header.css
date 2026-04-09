@@ -2,12 +2,11 @@
    LAYOUT DE CABECERA (Mobile-First)
    ========================================================================== */
 .main-header {
+    position: relative;
+    z-index: 1000;
     background-color: var(--bg-header);
     border-bottom: 1px solid var(--border-color);
     box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -214,11 +213,39 @@
 
 
 
+/* --- OSCURECER EL FONDO AL ABRIR EL MENÚ --- */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px); /* Efecto cristal esmerilado */
+    z-index: 999; /* Justo debajo del header (1000) */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Se activa cuando el menú está abierto */
+.nav-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
 /* Pantallas Medianas/Grandes (Tablets y Laptops) */
 @media (min-width: 1124px) {
+    .main-header {
+        position: sticky; /* Solo será sticky en pantallas grandes */
+        top: 0;
+    }
+
     .header-nav {
         display: block; 
     }
@@ -228,7 +255,7 @@
     }
 }
 
-/* Pantallas Pequeñas (Móviles) - Mejoramos el ajuste */
+/* Pantallas Pequeñas (tablets o ordenadores con baja resolución) - Mejoramos el ajuste */
 @media (max-width: 1123px) {
     .header-nav {
         display: none; /* Escondemos el menú hasta que se pulse la hamburguesa */
@@ -241,7 +268,7 @@
 
 /* Optimización para móviles */
 @media (max-width: 640px) {
-.header-container {
+    .header-container {
         display: grid;
         /* Columna 1: Nombre (ocupa todo el espacio disponible) | Columna 2: Menú (auto) */
         grid-template-columns: 1fr auto;
