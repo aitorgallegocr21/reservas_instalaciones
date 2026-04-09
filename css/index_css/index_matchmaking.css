@@ -91,6 +91,21 @@
     color: var(--text-muted);
 }
 
+/* Asegura que los iconos vinculados hereden el tamaño del contenedor */
+.feature-icon-wrapper svg,
+.icon-btn,
+.connection-line {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+}
+
+/* El conector visual necesita su tamaño original de diseño */
+.connection-line {
+    width: 100px;
+    height: 40px;
+}
+
 
 
 /* --- BOCETO VISUAL (Matchmaking Sketch) --- */

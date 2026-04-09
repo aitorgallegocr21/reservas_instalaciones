@@ -36,11 +36,11 @@
             <div class="header-user-actions">
                 <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar modo de color">
                     <svg class="sun-icon">
-                        <use xlink:href="assets/svg/index_sunmoon.svg#icon-sun"></use>
+                        <use xlink:href="assets/svg/index_svg/index_sunmoon.svg#icon-sun"></use>
                     </svg>
                 
                     <svg class="moon-icon">
-                        <use xlink:href="assets/svg/index_sunmoon.svg#icon-moon"></use>
+                        <use xlink:href="assets/svg/index_svg/index_sunmoon.svg#icon-moon"></use>
                     </svg>
                 </button>
             
@@ -92,7 +92,7 @@
                 <ul class="facilities-grid" role="list">
                     <li class="facility-item">
                         <svg class="facility-icon">
-                            <use xlink:href="assets/svg/index_iconos_instalaciones.svg#icon-padel"></use>
+                            <use xlink:href="assets/svg/index_svg/index_instalaciones.svg#icon-padel"></use>
                         </svg>
                         <div class="facility-info">
                             <h3>Pistas de Pádel</h3>
@@ -102,7 +102,7 @@
                 
                     <li class="facility-item">
                         <svg class="facility-icon">
-                            <use xlink:href="assets/svg/index_iconos_instalaciones.svg#icon-pavilion"></use>
+                            <use xlink:href="assets/svg/index_svg/index_instalaciones.svg#icon-pavilion"></use>
                         </svg>
                         <div class="facility-info">
                             <h3>Pabellón Municipal</h3>
@@ -112,7 +112,7 @@
                 
                     <li class="facility-item">
                         <svg class="facility-icon">
-                            <use xlink:href="assets/svg/index_iconos_instalaciones.svg#icon-pool"></use>
+                            <use xlink:href="assets/svg/index_svg/index_instalaciones.svg#icon-pool"></use>
                         </svg>
                         <div class="facility-info">
                             <h3>Piscina de Verano</h3>
@@ -151,11 +151,8 @@
                 <ul class="matchmaking-features" role="list">
                     <li class="feature-item">
                         <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            <svg>
+                                <use xlink:href="assets/svg/index_svg/index_matchmaking.svg#icon-level"></use>
                             </svg>
                         </div>
                         <div class="feature-text">
@@ -165,8 +162,8 @@
                     </li>
                     <li class="feature-item">
                         <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"></path>
+                            <svg>
+                                <use xlink:href="assets/svg/index_svg/index_matchmaking.svg#icon-chat"></use>
                             </svg>
                         </div>
                         <div class="feature-text">
@@ -175,38 +172,40 @@
                         </div>
                     </li>
                 </ul>
-    
+
                 <div class="cta-wrapper">
                     <a href="#" class="btn btn-primary btn-large">
                         <span>Buscar compañeros ahora</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <polyline points="16 11 18 13 22 9"></polyline>
+                        <svg class="icon-btn">
+                            <use xlink:href="assets/svg/index_svg/index_matchmaking.svg#icon-search-user"></use>
                         </svg>
                     </a>
                 </div>
+
             </article>
     
             <div class="matchmaking-visual">
+
                 <div class="visual-sketch">
                     <div class="sketch-card user-a">
                         <div class="avatar-placeholder"></div>
                         <div class="line-placeholder short"></div>
                         <div class="line-placeholder long"></div>
                     </div>
+
                     <div class="match-connector">
                         <div class="pulse-circle"></div>
-                        <svg class="connection-line" viewBox="0 0 100 20">
-                            <path d="M0,10 Q50,20 100,10" stroke-dasharray="5,5" />
+                        <svg class="connection-line">
+                            <use xlink:href="assets/svg/index_svg/index_matchmaking.svg#connection-curve"></use>
                         </svg>
                     </div>
+
                     <div class="sketch-card user-b">
                         <div class="avatar-placeholder"></div>
                         <div class="line-placeholder short"></div>
                         <div class="line-placeholder long"></div>
                     </div>
+
                     <div class="match-badge">Match!</div>
                 </div>
             </div>
