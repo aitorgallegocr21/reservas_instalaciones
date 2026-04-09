@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="icon-padel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14.5 2.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z" />
+        <path d="M10.5 13.5L3 21" />
+        <circle cx="12.5" cy="6.5" r="0.5" fill="currentColor"/>
+        <circle cx="14.5" cy="8.5" r="0.5" fill="currentColor"/>
+        <circle cx="16.5" cy="6.5" r="0.5" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icon-pavilion" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 21h18" />
+        <path d="M5 21V7l7-4 7 4v14" />
+        <path d="M9 21v-4a3 3 0 0 1 6 0v4" />
+    </symbol>
+
+    <symbol id="icon-pool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 12c1.5 0 1.5-2 3-2s1.5 2 3 2 1.5-2 3-2 1.5 2 3 2 1.5-2 3-2 1.5 2 3 2" />
+        <path d="M2 17c1.5 0 1.5-2 3-2s1.5 2 3 2 1.5-2 3-2 1.5 2 3 2 1.5-2 3-2 1.5 2 3 2" />
+        <path d="M16 8V2h4v6" />
+        <path d="M16 5h4" />
+    </symbol>
+</svg>

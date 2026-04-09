@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas Argamasilla de Alba</title>
+
+    <link rel="stylesheet" href="/css/design_reset.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/index_css/index_instalaciones.css">
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="header-container">
+    
+            <div class="header-brand">
+                <a href="/" aria-label="Volver al inicio">
+                    <img src="/assets/img/EscudoArgamasilla.webp" alt="Escudo oficial de Argamasilla de Alba" width="50"
+                        height="50" class="brand-logo">
+                    <h1 class="brand-name">Argamasilla de Alba</h1>
+                </a>
+            </div>
+    
+            <nav class="header-nav" aria-label="Navegación principal">
+                <ul class="nav-list">
+                    <li><a href="/" class="nav-link">Inicio</a></li>
+                    <li><a href="/html/instalaciones.html" class="nav-link">Instalaciones</a></li>
+                    <li><a href="/" class="nav-link">Buscar compañero</a></li>
+                    <li><a href="/" class="nav-link">Mis reservas</a></li>
+                    <li><a href="/" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+    
+            <div class="header-user-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar modo de color">
+                    <svg class="sun-icon">
+                        <use xlink:href="/assets/svg/index_sunmoon.svg#icon-sun"></use>
+                    </svg>
+                
+                    <svg class="moon-icon">
+                        <use xlink:href="/assets/svg/index_sunmoon.svg#icon-moon"></use>
+                    </svg>
+                </button>
+            
+                <div class="auth-buttons">
+                    <a href="/" class="btn btn-secondary">Iniciar sesión</a>
+                    <a href="/" class="btn btn-primary">Registrarse</a>
+                </div>
+    
+                <div class="user-profile" style="display: none;">
+                    <button class="profile-trigger" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Ver perfil de usuario</span>
+                        <img src="img/default-avatar.jpg" alt="Foto de perfil" class="user-avatar">
+                    </button>
+                </div>
+            </div>
+    
+            <button class="mobile-nav-toggle" aria-controls="header-nav" aria-expanded="false">
+                <span class="sr-only"></span>
+                <span class="hamburger"></span>
+            </button>
+    
+        </div>
+    </header>
+
+    <section id="instalaciones" class="facilities-section">
+        <div class="section-container">
+    
+            <div class="facilities-visual">
+                <figure class="image-wrapper">
+                    <img src="assets/img/complejo-deportivo.jpg"
+                        alt="Vista general del Complejo Deportivo Municipal de Argamasilla de Alba" loading="lazy"
+                        width="800" height="600">
+                    <div class="image-overlay">
+                        <span class="badge">Abierto ahora</span>
+                    </div>
+                </figure>
+            </div>
+    
+            <article class="facilities-content">
+                <header class="content-header">
+                    <span class="section-subtitle">Servicios Municipales</span>
+                    <h2 class="section-title">Nuestras Instalaciones</h2>
+                    <p class="section-description">
+                        Disfruta de espacios deportivos de primer nivel en el corazón de La Mancha. Reserva tu plaza de
+                        forma rápida y segura.
+                    </p>
+                </header>
+    
+                <ul class="facilities-grid" role="list">
+                    <li class="facility-item">
+                        <svg class="facility-icon">
+                            <use xlink:href="assets/svg/index_iconos_instalaciones.svg#icon-padel"></use>
+                        </svg>
+                        <div class="facility-info">
+                            <h3>Pistas de Pádel</h3>
+                            <p>3 pistas acristaladas de última generación.</p>
+                        </div>
+                    </li>
+                
+                    <li class="facility-item">
+                        <svg class="facility-icon">
+                            <use xlink:href="assets/svg/index_iconos_instalaciones.svg#icon-pavilion"></use>
+                        </svg>
+                        <div class="facility-info">
+                            <h3>Pabellón Municipal</h3>
+                            <p>Cancha multiusos para fútbol sala y baloncesto.</p>
+                        </div>
+                    </li>
+                
+                    <li class="facility-item">
+                        <svg class="facility-icon">
+                            <use xlink:href="assets/svg/index_iconos_instalaciones.svg#icon-pool"></use>
+                        </svg>
+                        <div class="facility-info">
+                            <h3>Piscina de Verano</h3>
+                            <p>Recinto adaptado con zonas verdes y sombra.</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="cta-wrapper">
+                    <a href="html/instalaciones.html" class="btn btn-primary btn-large" role="button">
+                        <span>Reservar instalación ahora</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+    
+        </div>
+    </section>
+
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>

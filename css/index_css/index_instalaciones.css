@@ -1,0 +1,192 @@
+/* ==========================================================================
+   SECCIÓN DE INSTALACIONES
+   ========================================================================== */
+
+.facilities-section {
+    padding: 5rem 1.5rem;
+    background-color: var(--bg-header); /* Contraste sutil con el fondo del body */
+    transition: background-color 0.3s ease;
+}
+
+.section-container {
+    max-width: 75rem; /* 1200px */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile-First: Una sola columna */
+    gap: 3rem;
+    align-items: center;
+}
+
+/* --- BLOQUE VISUAL (Izquierda) --- */
+
+.facilities-visual {
+    position: relative;
+    width: 100%;
+}
+
+.image-wrapper {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background-color: var(--brand-secondary);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.facilities-visual:hover img {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+}
+
+.badge {
+    background: rgba(46, 204, 113, 0.9); /* Verde éxito */
+    backdrop-filter: blur(4px);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* --- BLOQUE DE CONTENIDO (Derecha) --- */
+
+.content-header {
+    margin-bottom: 2.5rem;
+}
+
+.section-subtitle {
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.section-description {
+    color: var(--text-muted);
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+
+
+/* --- GRID DE INSTALACIONES (Features) --- */
+
+.facilities-grid {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.facility-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.facility-item:hover {
+    background-color: var(--brand-secondary);
+}
+
+.facility-icon {
+    width: 2rem;
+    height: 2rem;
+    fill: none;   /* Importante para iconos de trazo (stroke) */
+    stroke: var(--brand-primary);
+    stroke-width: 2;
+    flex-shrink: 0;
+}
+
+.facility-info h3 {
+    font-size: 1.125rem;
+    color: var(--text-main);
+    margin-bottom: 0.25rem;
+}
+
+.facility-info p {
+    color: var(--text-muted);
+    font-size: 0.9375rem;
+}
+
+
+
+/* --- Botón de Reserva --- */
+
+.btn-large {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 2.5rem;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px -5px rgba(10, 77, 162, 0.3);
+}
+
+.btn-large svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-large:hover svg {
+    transform: translateX(5px);
+}
+
+
+
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+
+/* Tablets y Desktop (A partir de 1024px) */
+@media (min-width: 64rem) {
+    .section-container {
+        grid-template-columns: 1fr 1fr; /* Layout de dos columnas */
+        gap: 5rem;
+    }
+
+    .facilities-visual {
+        order: 1; /* Imagen a la izquierda */
+    }
+
+    .facilities-content {
+        order: 2; /* Texto a la derecha */
+    }
+
+    .section-title {
+        font-size: 3.5rem; /* Título más imponente en escritorio */
+    }
+}
+
+/* Ajustes para modo oscuro específico de la sección */
+[data-theme='dark'] .facility-item:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
