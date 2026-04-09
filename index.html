@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/design_reset.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/index_css/index_instalaciones.css">
+    <link rel="stylesheet" href="css/index_css/index_matchmaking.css">
 </head>
 <body>
     
@@ -35,11 +36,11 @@
             <div class="header-user-actions">
                 <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar modo de color">
                     <svg class="sun-icon">
-                        <use xlink:href="assets/svg/index_sunmoon.svg#icon-sun"></use>
+                        <use xlink:href="assets/svg/index_svg/index_sunmoon.svg#icon-sun"></use>
                     </svg>
                 
                     <svg class="moon-icon">
-                        <use xlink:href="assets/svg/index_sunmoon.svg#icon-moon"></use>
+                        <use xlink:href="assets/svg/index_svg/index_sunmoon.svg#icon-moon"></use>
                     </svg>
                 </button>
             
@@ -64,6 +65,8 @@
         </div>
     </header>
 
+    <div class="nav-overlay" id="nav-overlay"></div>
+
     <section id="instalaciones" class="facilities-section">
         <div class="section-container">
     
@@ -83,15 +86,15 @@
                     <span class="section-subtitle">Servicios Municipales</span>
                     <h2 class="section-title">Nuestras Instalaciones</h2>
                     <p class="section-description">
-                        Disfruta de espacios deportivos de primer nivel en el corazón de La Mancha. Reserva tu plaza de
-                        forma rápida y segura.
+                        Disfruta de espacios deportivos de primer nivel en el corazón de 
+                        La Mancha. Reserva tu plaza de forma rápida y segura.
                     </p>
                 </header>
     
                 <ul class="facilities-grid" role="list">
                     <li class="facility-item">
                         <svg class="facility-icon">
-                            <use xlink:href="assets/svg/index_iconos_instalaciones.svg#icon-padel"></use>
+                            <use xlink:href="assets/svg/index_svg/index_instalaciones.svg#icon-padel"></use>
                         </svg>
                         <div class="facility-info">
                             <h3>Pistas de Pádel</h3>
@@ -101,7 +104,7 @@
                 
                     <li class="facility-item">
                         <svg class="facility-icon">
-                            <use xlink:href="assets/svg/index_iconos_instalaciones.svg#icon-pavilion"></use>
+                            <use xlink:href="assets/svg/index_svg/index_instalaciones.svg#icon-pavilion"></use>
                         </svg>
                         <div class="facility-info">
                             <h3>Pabellón Municipal</h3>
@@ -111,7 +114,7 @@
                 
                     <li class="facility-item">
                         <svg class="facility-icon">
-                            <use xlink:href="assets/svg/index_iconos_instalaciones.svg#icon-pool"></use>
+                            <use xlink:href="assets/svg/index_svg/index_instalaciones.svg#icon-pool"></use>
                         </svg>
                         <div class="facility-info">
                             <h3>Piscina de Verano</h3>
@@ -129,6 +132,85 @@
                     </a>
                 </div>
             </article>
+    
+        </div>
+    </section>
+
+    <section id="matchmaking" class="matchmaking-section">
+        <div class="section-container">
+    
+            <article class="matchmaking-content">
+                <header class="content-header">
+                    <span class="section-subtitle">Comunidad Deportiva</span>
+                    <h2 class="section-title">¿Te falta un jugador?</h2>
+                    <p class="section-description">
+                        No dejes que una baja de última hora arruine tu partida.
+                        Conecta con otros deportistas locales,
+                        encuentra el nivel adecuado y completa tu equipo en segundos.
+                    </p>
+                </header>
+    
+                <ul class="matchmaking-features" role="list">
+                    <li class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <svg>
+                                <use xlink:href="assets/svg/index_svg/index_matchmaking.svg#icon-level"></use>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Filtro por Nivel</h3>
+                            <p>Busca compañeros con tu mismo ritmo de juego.</p>
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <svg>
+                                <use xlink:href="assets/svg/index_svg/index_matchmaking.svg#icon-chat"></use>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Chat Integrado</h3>
+                            <p>Coordina los detalles del encuentro sin salir de la app.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="cta-wrapper">
+                    <a href="#" class="btn btn-primary btn-large">
+                        <span>Buscar compañeros ahora</span>
+                        <svg class="icon-btn">
+                            <use xlink:href="assets/svg/index_svg/index_matchmaking.svg#icon-search-user"></use>
+                        </svg>
+                    </a>
+                </div>
+
+            </article>
+    
+            <div class="matchmaking-visual">
+
+                <div class="visual-sketch">
+                    <div class="sketch-card user-a">
+                        <div class="avatar-placeholder"></div>
+                        <div class="line-placeholder short"></div>
+                        <div class="line-placeholder long"></div>
+                    </div>
+
+                    <div class="match-connector">
+                        <div class="pulse-circle"></div>
+                        <svg class="connection-line">
+                            <use xlink:href="assets/svg/index_svg/index_matchmaking.svg#connection-curve"></use>
+                        </svg>
+                    </div>
+
+                    <div class="sketch-card user-b">
+                        <div class="avatar-placeholder"></div>
+                        <div class="line-placeholder short"></div>
+                        <div class="line-placeholder long"></div>
+                    </div>
+
+                    <div class="match-badge">Match!</div>
+                </div>
+            </div>
     
         </div>
     </section>

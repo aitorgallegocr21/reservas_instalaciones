@@ -3,9 +3,9 @@
    ========================================================================== */
 :root {
     /* Paleta Base (Modo Claro) */
-    --brand-primary: #0a4da2;       /* Azul institucional */
-    --brand-secondary: #e6f0ff;     /* Azul muy claro para fondos */
-    --accent: #f39c12;              /* Oro/Naranja para acciones (CTA) */
+    --brand-primary: #0a4da2;
+    --brand-secondary: #e6f0ff;
+    --accent: #f39c12;
     
     --bg-header: #ffffff;
     --text-main: #2c3e50;
@@ -28,8 +28,6 @@
     --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 }
 
-/* Para poner modo oscuro, en JS poner "document.documentElement.setAttribute('data-theme', 'dark')". Se debe crear método para eso. */
-
 
 
 /* ==========================================================================
@@ -44,5 +42,5 @@
 body {
     font-family: var(--font-main);
     color: var(--text-main);
-    background-color: var(--brand-secondary); /* Fondo de página suave */
+    background-color: var(--brand-secondary);
 }
