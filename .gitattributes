@@ -1,0 +1,7 @@
+# Forzar que todos los archivos de texto se manejen automáticamente
+* text=auto
+
+# Asegurar que archivos específicos siempre usen LF (lo ideal para web)
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
