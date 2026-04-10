@@ -43,10 +43,10 @@
 .brand-name {
     font-size: clamp(1rem, 4vw, 1.25rem); /* Tipografía fluida: se ajusta sola entre 1rem y 1.25rem */
     font-weight: 700;
-    white-space: nowrap; /* Evita que el nombre salte de línea */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Si no cabe, pone "..." en lugar de romper el body */
+    line-height: 1.1;
 }
+
+
 
 /* ==========================================================================
    NAVEGACIÓN (OCULTA EN MÓVIL)
@@ -144,19 +144,32 @@
 
 /* Clase que activará Javascript para mostrar el menú */
 .header-nav.is-active {
-    display: block;
+    display: flex;
+    flex-direction: column; 
+    gap: 1.5rem;
     position: absolute;
-    top: 5rem; /* Justo debajo del header */
+    top: 5rem; 
     left: 0;
     width: 100%;
     background-color: var(--bg-header);
-    padding: 1rem;
+    padding: 1.5rem;
     border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-.header-nav.is-active .nav-list {
-    flex-direction: column; /* Lista vertical en móvil */
-    gap: 1rem;
+/* Estilo de los botones dentro del menú móvil */
+.header-nav.is-active .auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.header-nav.is-active .btn {
+    width: 100%;
+    text-align: center;
 }
 
 /* Animación del icono Hamburguesa a una "X" */
@@ -243,12 +256,14 @@
 /* Pantallas Grandes (Tablets y Laptops) */
 @media (min-width: 1200px) {
     .main-header {
-        position: sticky; /* Solo será sticky en pantallas grandes */
+        position: sticky;
         top: 0;
     }
 
     .header-nav {
-        display: block; 
+        display: flex; /* Mantiene la lista y los botones alineados horizontalmente */
+        align-items: center;
+        gap: 2rem; 
     }
     
     .mobile-nav-toggle {
@@ -256,8 +271,8 @@
     }
 }
 
-/* Pantallas Pequeñas (tablets o ordenadores con baja resolución) - Mejoramos el ajuste */
-@media (max-width: 1123px) {
+/* Pantallas Pequeñas (tablets o ordenadores con baja resolución) */
+@media (max-width: 1199px) {
     .header-nav {
         display: none; /* Escondemos el menú hasta que se pulse la hamburguesa */
     }
@@ -265,58 +280,34 @@
     .header-container {
         padding: 0.75rem 1rem; /* Reducimos padding lateral en móviles */
     }
+
+    /* Empujamos el botón de tema para que se pegue a la hamburguesa */
+    .header-user-actions {
+        margin-left: auto;
+        margin-right: 0.5rem; /* Espacio entre el tema y la hamburguesa */
+        width: auto;
+        padding-top: 0;
+        border-top: none;
+    }
 }
 
-/* Optimización para móviles */
+/* Optimización para móviles (Menos de 640px) */
 @media (max-width: 640px) {
     .header-container {
-        display: grid;
-        /* Columna 1: Nombre (ocupa todo el espacio disponible) | Columna 2: Menú (auto) */
-        grid-template-columns: 1fr auto;
-        /* Fila 1: Brand y Hamburguesa | Fila 2: Acciones de usuario */
-        grid-template-rows: auto auto;
-        row-gap: 1.2rem;
-        padding: 1rem 1.5rem;
-        min-height: auto; /* Dejamos que el contenido dicte la altura total */
-    }
-
-    /* FILA 1: Brand (Izquierda) */
-    .header-brand {
-        grid-column: 1;
-        grid-row: 1;
-        align-self: center;
-    }
-
-    /* FILA 1: Menú Hamburguesa (Derecha) */
-    .mobile-nav-toggle {
-        grid-column: 2;
-        grid-row: 1;
-        justify-self: end;
-        align-self: center;
-        padding: 0.5rem 0; /* Ajuste fino de alineación */
-    }
-
-    /* FILA 2: Acciones (Tema + Botones) - Ocupa ambas columnas */
-    .header-user-actions {
-        grid-column: 1 / span 2;
-        grid-row: 2;
-        width: 100%;
-        display: flex;
-        justify-content: space-between; /* Icono tema a un lado, botones al otro */
+        justify-content: space-between;
         align-items: center;
-        
-        /* Opcional: Una línea sutil para separar visualmente las filas */
-        border-top: 1px solid var(--border-color);
-        padding-top: 1rem;
+        padding: 1rem 1.5rem;
+        min-height: auto;
     }
 
-    /* Ajuste de los botones para que no se vean demasiado grandes */
-    .auth-buttons {
-        gap: 0.5rem;
+    .brand-name {
+        max-width: 300px;
     }
 
-    .btn {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.8rem;
+    /* Forzamos la lista a vertical SOLO por debajo de 640px */
+    .header-nav.is-active .nav-list {
+        flex-direction: column;
+        align-items: center; /* Centra los enlaces para que queden alineados con los botones */
+        width: 100%;
     }
 }
