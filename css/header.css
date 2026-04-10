@@ -18,6 +18,7 @@
     align-items: center;
     gap: 0.6rem; /* Espacio mínimo entre grupos de elementos */
     min-height: 5rem;
+    padding: 0 2rem;
 }
 
 /* Brand / Logo */
@@ -239,8 +240,8 @@
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
-/* Pantallas Medianas/Grandes (Tablets y Laptops) */
-@media (min-width: 1124px) {
+/* Pantallas Grandes (Tablets y Laptops) */
+@media (min-width: 1200px) {
     .main-header {
         position: sticky; /* Solo será sticky en pantallas grandes */
         top: 0;
