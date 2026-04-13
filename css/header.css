@@ -69,6 +69,12 @@
     transition: color 0.2s ease;
 }
 
+.nav-link.is-active-page {
+    color: var(--brand-primary);
+    font-weight: 700;
+    border-bottom: 2px solid var(--brand-primary);
+}
+
 .nav-link:hover {
     color: var(--brand-primary);
 }

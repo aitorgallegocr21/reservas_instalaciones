@@ -10,62 +10,8 @@
 </head>
 <body>
     
-    <!-- Cabecera o Header -->
-    <header class="main-header">
-        <div class="header-container">
-    
-            <div class="header-brand">
-                <a href="../" aria-label="Volver al inicio">
-                    <img src="../assets/img/EscudoArgamasilla.webp" alt="Escudo oficial de Argamasilla de Alba" width="50"
-                        height="50" class="brand-logo">
-                    <h1 class="brand-name">Argamasilla de Alba</h1>
-                </a>
-            </div>
-    
-            <nav class="header-nav" aria-label="Navegación principal">
-                <ul class="nav-list">
-                    <li><a href="../" class="nav-link">Inicio</a></li>
-                    <li><a href="./instalaciones.html" class="nav-link">Instalaciones</a></li>
-                    <li><a href="./matchmaking.html" class="nav-link">Buscar compañero</a></li>
-                    <li><a href="./mis_reservas.html" class="nav-link">Mis reservas</a></li>
-                    <li><a href="./contacto.html" class="nav-link">Contacto</a></li>
-                </ul>
-
-                <div class="auth-buttons">
-                    <a href="../" class="btn btn-secondary">Iniciar sesión</a>
-                    <a href="../" class="btn btn-primary">Registrarse</a>
-                </div>
-            </nav>
-    
-            <div class="header-user-actions">
-                <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar modo de color">
-                    <svg class="sun-icon">
-                        <use xlink:href="../assets/svg/index_svg/index_sunmoon.svg#icon-sun"></use>
-                    </svg>
-                
-                    <svg class="moon-icon">
-                        <use xlink:href="../assets/svg/index_svg/index_sunmoon.svg#icon-moon"></use>
-                    </svg>
-                </button>
-    
-                <div class="user-profile" style="display: none;">
-                    <button class="profile-trigger" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only">Ver perfil de usuario</span>
-                        <img src="../assets/img/avatar_generico.png" alt="Foto de perfil" class="user-avatar">
-                    </button>
-                </div>
-            </div>
-    
-            <button class="mobile-nav-toggle" aria-controls="header-nav" aria-expanded="false">
-                <span class="sr-only"></span>
-                <span class="hamburger"></span>
-            </button>
-    
-        </div>
-    </header>
-
-    <!-- Menú desplegable (por defecto está oculto y se muestra con JS) -->
-    <div class="nav-overlay" id="nav-overlay"></div>
+    <!-- Cabecera o Header que se carga desde un archivo JS dependiendo de la página que es -->
+    <main-header data-path="sub"></main-header>
 
     <script type="module" src="../js/main.js"></script>
 </body>
