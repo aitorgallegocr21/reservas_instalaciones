@@ -2,7 +2,10 @@ import './components/MainHeader.js';
 import { toggleTheme, applySavedTheme } from "./functions/theme-logic.js";
 import { toggleMenu } from "./functions/menu-logic.js";
 
+// Esta función busca los botones (Cambia tema y menú desplegable)
+// para asignarles sus funciones
 const initApp = () => {
+    // Aplica ya un tema si existe en la memoria del navegador
     applySavedTheme();
 
     const themeToggle = document.getElementById("theme-toggle");
@@ -19,7 +22,7 @@ const initApp = () => {
     }
 };
 
-// Escucha el evento y también verifica si el header ya está en el DOM
+// Ejecuta la función initApp cuando se detecte que la cabecera está lista y cargada en el DOM
 window.addEventListener("header-ready", initApp);
 
 // Verificación de seguridad: si el componente ya cargó, inicializamos

@@ -11,14 +11,17 @@
 }
 
 .header-container {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0.6rem; /* Espacio mínimo entre grupos de elementos */
     min-height: 5rem;
-    padding: 0 2rem;
+    padding: 0 3rem;
+    /* Padding fluido: más pequeño en pantallas ajustadas, más grande en 4K */
+    padding: 0 clamp(1.5rem, 4vw, 3rem);
+    /* Usamos clamp para que el gap varíe entre 1rem y 2rem según el ancho */
+    gap: clamp(1rem, 2vw, 2rem);
 }
 
 /* Brand / Logo */
@@ -51,6 +54,7 @@
 /* ==========================================================================
    NAVEGACIÓN (OCULTA EN MÓVIL)
    ========================================================================== */
+
 .header-nav {
     display: none;
 }
@@ -58,25 +62,57 @@
 .nav-list {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    align-items: center;
+    /* El espacio se encogerá automáticamente antes de llegar al modo móvil */
+    gap: clamp(0.8rem, 1.5vw, 2rem);
 }
 
 .nav-link {
+    position: relative;
     text-decoration: none;
     color: var(--text-muted);
     font-weight: 500;
     font-size: 0.95rem;
-    transition: color 0.2s ease;
+    padding: 0.5rem 0;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Pseudo-elemento para el subrayado animado */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--brand-primary);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+}
+
+/* ESTADO: PÁGINA ACTIVA */
 .nav-link.is-active-page {
     color: var(--brand-primary);
-    font-weight: 700;
-    border-bottom: 2px solid var(--brand-primary);
+    font-weight: 700; /* Peso extra para destacar jerarquía */
+}
+
+.nav-link.is-active-page::after {
+    width: 100%;
+    background-color: var(--accent);
+    height: 3px;
 }
 
 .nav-link:hover {
     color: var(--brand-primary);
+}
+
+.nav-link:hover::after {
+    width: 100%; /* El subrayado se expande suavemente */
+}
+
+/* Efecto sutil de "elevación" para el texto en hover */
+.nav-link:active {
+    transform: translateY(1px);
 }
 
 /* Botones de Acción */
@@ -193,6 +229,8 @@
     bottom: 0;
 }
 
+
+
 /* ==========================================================================
    BOTÓN DE CAMBIO DE TEMA
    ========================================================================== */
@@ -259,6 +297,26 @@
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
+
+/* Se reduce ligeramente el tamaño de la fuente en la zona con estrechamiento */
+@media (min-width: 1200px) and (max-width: 1350px) {
+    .nav-link {
+        font-size: 0.85rem; /* Un poco más pequeño para ganar píxeles vitales */
+    }
+    
+    .brand-name {
+        font-size: 1.1rem; /* Protegemos el logo para que no empuje el resto */
+    }
+
+    .btn {
+        padding: 0.6rem 0.8rem; /* Ganamos espacio en los botones de auth */
+    }
+    
+    .header-user-actions {
+        gap: 0.5rem; /* Pegamos un poco más el selector de tema */
+    }
+}
+
 /* Pantallas Grandes (Tablets y Laptops) */
 @media (min-width: 1200px) {
     .main-header {
