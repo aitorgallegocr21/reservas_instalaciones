@@ -7,66 +7,16 @@
 
     <link rel="stylesheet" href="css/design_reset.css">
     <link rel="stylesheet" href="css/header.css">
+
     <link rel="stylesheet" href="css/index_css/index_instalaciones.css">
     <link rel="stylesheet" href="css/index_css/index_matchmaking.css">
 </head>
 <body>
     
-    <header class="main-header">
-        <div class="header-container">
-    
-            <div class="header-brand">
-                <a href="./" aria-label="Volver al inicio">
-                    <img src="assets/img/EscudoArgamasilla.webp" alt="Escudo oficial de Argamasilla de Alba" width="50"
-                        height="50" class="brand-logo">
-                    <h1 class="brand-name">Argamasilla de Alba</h1>
-                </a>
-            </div>
-    
-            <nav class="header-nav" aria-label="Navegación principal">
-                <ul class="nav-list">
-                    <li><a href="./" class="nav-link">Inicio</a></li>
-                    <li><a href="html/instalaciones.html" class="nav-link">Instalaciones</a></li>
-                    <li><a href="." class="nav-link">Buscar compañero</a></li>
-                    <li><a href="./" class="nav-link">Mis reservas</a></li>
-                    <li><a href="./" class="nav-link">Contacto</a></li>
-                </ul>
+    <!-- Cabecera o Header que se carga desde un archivo JS dependiendo de la página que es -->
+    <main-header data-path="root"></main-header>
 
-                <div class="auth-buttons">
-                    <a href="./" class="btn btn-secondary">Iniciar sesión</a>
-                    <a href="./" class="btn btn-primary">Registrarse</a>
-                </div>
-            </nav>
-    
-            <div class="header-user-actions">
-                <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar modo de color">
-                    <svg class="sun-icon">
-                        <use xlink:href="assets/svg/index_svg/index_sunmoon.svg#icon-sun"></use>
-                    </svg>
-                
-                    <svg class="moon-icon">
-                        <use xlink:href="assets/svg/index_svg/index_sunmoon.svg#icon-moon"></use>
-                    </svg>
-                </button>
-    
-                <div class="user-profile" style="display: none;">
-                    <button class="profile-trigger" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only">Ver perfil de usuario</span>
-                        <img src="assets/img/avatar_generico.png" alt="Foto de perfil" class="user-avatar">
-                    </button>
-                </div>
-            </div>
-    
-            <button class="mobile-nav-toggle" aria-controls="header-nav" aria-expanded="false">
-                <span class="sr-only"></span>
-                <span class="hamburger"></span>
-            </button>
-    
-        </div>
-    </header>
-
-    <div class="nav-overlay" id="nav-overlay"></div>
-
+    <!-- Sección de Instalaciones de la página principal -->
     <section id="instalaciones" class="facilities-section">
         <div class="section-container">
     
@@ -136,6 +86,7 @@
         </div>
     </section>
 
+    <!-- Sección de emparejamiento con otros jugadores de la página principal -->
     <section id="matchmaking" class="matchmaking-section">
         <div class="section-container">
     

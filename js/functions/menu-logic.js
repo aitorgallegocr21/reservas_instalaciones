@@ -13,5 +13,9 @@ export const toggleMenu = () => {
         
         // Bloquea el scroll del cuerpo para que el usuario no se pierda
         document.body.style.overflow = navMenu.classList.contains('is-active') ? 'hidden' : '';
+    
+    } else {
+        console.warn("Error: Faltan elementos del menú en el DOM.");
+        return;
     }
 };
