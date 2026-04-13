@@ -51,12 +51,13 @@ class MainHeader extends HTMLElement {
                 <div class="nav-overlay" id="nav-overlay"></div>
             `;
 
-        // USAMOS UN PEQUEÑO RETRASO (setTimeout 0)
-        // Esto coloca el evento al final de la cola de ejecución,
-        // asegurando que main.js ya esté escuchando.
+        // Pequeño retraso para colocar el evento al final de la cola de ejecución,
+        // para asegurar que no se lance antes de que el main esté escuchando
         setTimeout(() => {
             window.dispatchEvent(new CustomEvent("header-ready"));
         }, 0);
     }
 }
+
+// Cuando cargue la etiqueta <main-header> ejecuta la clase
 customElements.define("main-header", MainHeader);
