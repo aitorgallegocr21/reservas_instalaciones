@@ -1,16 +1,18 @@
+// --- IMPORTACIONES ---
 import './components/MainHeader.js';
 import { toggleTheme, applySavedTheme } from "./functions/theme-logic.js";
 import { toggleMenu } from "./functions/menu-logic.js";
 
-// Esta función busca los botones (Cambia tema y menú desplegable)
-// para asignarles sus funciones
+
+
+// --- DEFINICIÓN DE LA FUNCIONALIDAD DE LOS BOTONES DE LA CABECERA --- 
 const initApp = () => {
     // Aplica ya un tema si existe en la memoria del navegador
     applySavedTheme();
 
     const themeToggle = document.getElementById("theme-toggle");
     if (themeToggle) {
-        // Limpiamos listener previo para evitar duplicados si se llama dos veces
+        // Limpiamos escuchador previo para evitar duplicados si se llama dos veces
         themeToggle.removeEventListener("click", toggleTheme);
         themeToggle.addEventListener("click", toggleTheme);
     }
@@ -22,10 +24,16 @@ const initApp = () => {
     }
 };
 
-// Ejecuta la función initApp cuando se detecte que la cabecera está lista y cargada en el DOM
+
+
+// --- ESCUCHADOR ---
+// Si el componente se cargó después de la verificación, se ejecuta cuando avise
 window.addEventListener("header-ready", initApp);
 
-// Verificación de seguridad: si el componente ya cargó, inicializamos
+
+
+// --- VERIFICACIÓN ---
+// Si el componente ya terminó antes de llegar aquí, se ejecuta initApp lo antes posible
 if (document.querySelector('main-header')) {
     // Si ya existe un elemento con el contenido inyectado, forzamos inicio
     const hasContent = document.querySelector('main-header').innerHTML.trim() !== "";
