@@ -1,8 +1,19 @@
 class MainHeader extends HTMLElement {
     connectedCallback() {
-        const isRoot = this.getAttribute("data-path") === "root";
-        const prefix = isRoot ? "./" : "../";
+
+        // Se obtiene la ruta actual
         const currentPath = window.location.pathname;
+
+        // Definimos si es la página de inicio
+        const isIndex = (
+            currentPath.endsWith("index.html") || 
+            currentPath.endsWith("/") || 
+            currentPath === ""
+        );
+
+        // Establecemos el prefijo de las rutas según la ubicación
+        const prefix = isIndex ? "./" : "../";
+        
 
         this.innerHTML = `
                 <header class="main-header">
