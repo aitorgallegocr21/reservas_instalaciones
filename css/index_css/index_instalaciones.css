@@ -8,6 +8,11 @@
     transition: background-color 0.3s ease;
 }
 
+/* Ajustes para modo oscuro específico de la sección */
+[data-theme='dark'] .facility-item:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
 .section-container {
     max-width: 75rem; /* 1200px */
     margin: 0 auto;
@@ -186,9 +191,4 @@
     .section-title {
         font-size: 3.5rem; /* Título más imponente en escritorio */
     }
-}
-
-/* Ajustes para modo oscuro específico de la sección */
-[data-theme='dark'] .facility-item:hover {
-    background-color: rgba(52, 152, 219, 0.1);
 }
