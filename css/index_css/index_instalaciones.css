@@ -119,11 +119,15 @@
     align-items: center;
     padding: 1rem;
     border-radius: 1rem;
-    transition: background-color 0.2s ease;
+    border: 1px solid transparent; /* Evita saltos de layout */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transición más fluida */
 }
 
 .facility-item:hover {
     background-color: var(--brand-secondary);
+    transform: translateX(8px); /* Desplazamiento lateral sutil */
+    box-shadow: 0 4px 15px rgba(10, 77, 162, 0.08); /* Sombra suave de marca */
+    border-color: rgba(10, 77, 162, 0.1);
 }
 
 .facility-icon {
@@ -133,6 +137,12 @@
     stroke: var(--brand-primary);
     stroke-width: 2;
     flex-shrink: 0;
+}
+
+/* Efecto en el icono al pasar el ratón */
+.facility-item:hover .facility-icon {
+    transform: scale(1.1);
+    stroke-width: 2.5; /* Engrosamos el trazo del SVG */
 }
 
 .facility-info h3 {
