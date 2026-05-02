@@ -2,7 +2,7 @@
 import './components/MainHeader.js';
 import { toggleTheme, applySavedTheme } from "./functions/theme-logic.js";
 import { toggleMenu } from "./functions/menu-logic.js";
-
+import { initFilters } from "./instalaciones/filter-logic.js"; // <--- NUEVA IMPORTACIÓN 
 
 
 // --- DEFINICIÓN DE LA FUNCIONALIDAD DE LOS BOTONES DE LA CABECERA --- 
@@ -22,6 +22,11 @@ const initApp = () => {
         menuToggle.removeEventListener("click", toggleMenu);
         menuToggle.addEventListener("click", toggleMenu);
     }
+
+
+    // --- LÓGICA DE FILTROS ---
+    // Solo se ejecutará si existen los botones de filtro en el DOM
+    initFilters();
 };
 
 

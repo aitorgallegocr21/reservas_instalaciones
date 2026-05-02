@@ -1,0 +1,238 @@
+
+/* Heredamos variables de design_reset.css */
+/* ==========================================================================
+   PÁGINA DE INSTALACIONES - DISEÑO 
+   ========================================================================== */
+
+/* 1. Header de la página (Hero sutil) */
+.facilities-hero {
+    padding: 6rem 1.5rem 3rem;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--brand-secondary), transparent);
+}
+
+.facilities-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);   /* clamp > tamaño de la letra sea responsivo automáticamente */
+    color: var(--brand-primary);
+    margin-bottom: 1rem;
+}
+
+/* 2. Sistema de Filtros (Pills) */
+.filters-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-header);
+    color: var(--text-main);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--brand-primary);
+    color: white;
+    border-color: var(--brand-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(10, 77, 162, 0.2);
+}
+
+/* 3. La Tarjeta de Instalación (Componente Premium) */
+.facility-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-header);
+    border-radius: 1.5rem;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+}
+
+.facility-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-media {
+    position: relative;
+    aspect-ratio: 21 / 9;
+    overflow: hidden;
+    background-color: var(--brand-secondary); /* Color de carga */
+}
+
+.card-media img {
+    width: 100%;
+    height: 100%;
+    /* Muy importante: centra la imagen para que no se deforme */
+    object-fit: cover; 
+    /* Si la parte importante de tus fotos está en el centro, esto es clave */
+    object-position: center; 
+    transition: transform 0.5s ease;
+}
+
+
+.facility-card:hover .card-media img {
+    transform: scale(1.1);
+}
+
+/* Etiqueta de disponibilidad */
+.availability-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.9);
+}
+/* ESTO ES PARA CUANDO UNA PISTA O ALGO NO ESTE DISPONIBLE - Se cambia manualmente en el html */
+.available { color: #27ae60; 
+    border: 1px solid #27ae60; 
+}
+/* Badge de estado cerrado/ocupado */
+.busy { 
+    color: #e74c3c; 
+    border: 1px solid #e74c3c; 
+    background: rgba(255, 235, 235, 0.9);
+}
+
+/* Tarjeta deshabilitada - EXTRA */
+.facility-card.not-available {
+    filter: grayscale(0.8); /* La pone casi en blanco y negro */
+    opacity: 0.7;
+    pointer-events: none; /* Evita que se pueda hacer clic en el botón */
+    cursor: not-allowed;
+}
+
+
+/* Cuerpo de la tarjeta */
+.card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-main);
+}
+
+.card-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Info de precio y botón */
+.card-action-area {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+.price-tag {
+    display: flex;
+    flex-direction: column;
+}
+
+.price-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+.price-value { font-size: 1.2rem; font-weight: 700; color: var(--brand-primary); }
+
+.btn-reserve {
+    padding: 0.8rem 1.5rem;
+    background: var(--brand-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-reserve:hover {
+    background: #083d81;
+}
+
+
+/* LOGICA DEL FILTRO */
+/* Animación de entrada para las que aparecen */
+.facility-card.show {
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/* ICONOS */
+.title-area {
+    display: flex;
+    align-items: center; /* Centra verticalmente el icono con el texto */
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    line-height: 1; /* Ayuda a que el contenedor no gane altura extra por el texto */
+}
+
+.card-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    stroke: var(--brand-primary);
+    stroke-width: 2;
+    fill: none;
+}
+
+.title-area h3 {
+    margin: 0; /* Quitamos márgenes que puedan estar empujando el texto hacia abajo */
+    line-height: 1.2;
+}
+
+/* En modo oscuro el icono brilla más */
+[data-theme='dark'] .card-icon {
+    stroke: var(--accent);
+}
+
+/* Color del icono en el hover de la tarjeta */
+.facility-card:hover .card-icon {
+    stroke: var(--accent); /* O el color que prefieras para destacar */
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+
+/* Contenedor del Grid de Instalaciones */
+.facilities-grid .container {
+    display: grid;
+    /* Crea columnas automáticas de mínimo 320px */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 2.5rem;
+    padding: 2rem 0 5rem;
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+/* Ajuste para que en móviles no se pegue a los bordes */
+@media (max-width: 640px) {
+    .facilities-grid .container {
+        padding: 1rem 1.5rem 4rem;
+        grid-template-columns: 1fr; /* Una sola columna en móviles pequeños */
+    }
+}
