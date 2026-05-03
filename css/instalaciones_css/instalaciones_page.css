@@ -4,7 +4,7 @@
    PÁGINA DE INSTALACIONES - DISEÑO 
    ========================================================================== */
 
-/* 1. Header de la página (Hero sutil) */
+/* 1. Header de la página */
 .facilities-hero {
     padding: 6rem 1.5rem 3rem;
     text-align: center;
@@ -17,7 +17,7 @@
     margin-bottom: 1rem;
 }
 
-/* 2. Sistema de Filtros (Pills) */
+/* 2. Sistema de Filtros */
 .filters-wrapper {
     display: flex;
     justify-content: center;
@@ -45,7 +45,7 @@
     box-shadow: 0 5px 15px rgba(10, 77, 162, 0.2);
 }
 
-/* 3. La Tarjeta de Instalación (Componente Premium) */
+/* 3. La Tarjeta de Instalación */
 .facility-card {
     display: flex;
     flex-direction: column;
@@ -96,6 +96,14 @@
     text-transform: uppercase;
     backdrop-filter: blur(8px);
     background: rgba(255, 255, 255, 0.9);
+
+    /* Arreglo de problema de renderizacion de los badges */
+    /* Obliga al navegador a mantener este elemento en la memoria de la tarjeta gráfica */
+    will-change: transform, opacity, background-color;
+    
+    /* Evita que el texto y el color se "desconecten" */
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(1px); /* Un pequeño empujón en el eje Z */
 }
 /* ESTO ES PARA CUANDO UNA PISTA O ALGO NO ESTE DISPONIBLE - Se cambia manualmente en el html */
 .available { color: #27ae60; 
@@ -110,7 +118,7 @@
 
 /* Tarjeta deshabilitada - EXTRA */
 .facility-card.not-available {
-    filter: grayscale(0.8); /* La pone casi en blanco y negro */
+    filter: grayscale(0.6); /* La pone casi en blanco y negro */
     opacity: 0.7;
     pointer-events: none; /* Evita que se pueda hacer clic en el botón */
     cursor: not-allowed;
