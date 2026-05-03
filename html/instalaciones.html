@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/design_reset.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/instalaciones_css/instalaciones_page.css">
+    <link rel="stylesheet" href="../css/instalaciones_css/instalaciones_modal_reserva.css">
 
 </head>
 <body>
@@ -54,7 +55,12 @@
                                 <span class="price-label">Hora</span>
                                 <span class="price-value">5,00€</span>
                             </div>
-                            <a href="#" class="btn-reserve">Reservar</a>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista de Pádel 1" 
+                                data-price="5,00€">
+                                Reservar
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -75,7 +81,12 @@
                                 <span class="price-label">Hora</span>
                                 <span class="price-value">5,00€</span>
                             </div>
-                            <a href="#" class="btn-reserve">Reservar</a>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista de Pádel 2" 
+                                data-price="5,00€">
+                                Reservar
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -96,7 +107,12 @@
                                 <span class="price-label">Hora</span>
                                 <span class="price-value">5,00€</span>
                             </div>
-                            <a href="#" class="btn-reserve">Reservar</a>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista de Pádel 3" 
+                                data-price="5,00€">
+                                Reservar
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -118,7 +134,12 @@
                                 <span class="price-label">Hora</span>
                                 <span class="price-value">5,00€</span>
                             </div>
-                            <a href="#" class="btn-reserve">Reservar</a>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista de Tenis 1" 
+                                data-price="5,00€">
+                                Reservar
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -139,7 +160,12 @@
                                 <span class="price-label">Hora</span>
                                 <span class="price-value">5,00€</span>
                             </div>
-                            <a href="#" class="btn-reserve">Reservar</a>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista de Tenis 2" 
+                                data-price="5,00€">
+                                Reservar
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -161,7 +187,12 @@
                                 <span class="price-label">Desde</span>
                                 <span class="price-value">24,00€</span>
                             </div>
-                            <a href="#" class="btn-reserve">Reservar</a>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Campo de Fútbol Central" 
+                                data-price="24,00€">
+                                Reservar
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -183,7 +214,12 @@
                                 <span class="price-label">Hora</span>
                                 <span class="price-value">8,00€</span>
                             </div>
-                            <a href="#" class="btn-reserve">Reservar</a>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista Baloncesto Exterior" 
+                                data-price="8,00€">
+                                Reservar
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -205,7 +241,12 @@
                                 <span class="price-label">Hora</span>
                                 <span class="price-value">8,00€</span>
                             </div>
-                            <a href="#" class="btn-reserve">Reservar</a>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista Fútbol Sala" 
+                                data-price="8,00€">
+                                Reservar
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -227,7 +268,12 @@
                                 <span class="price-label">Hora</span>
                                 <span class="price-value">15,00€</span>
                             </div>
-                            <a href="#" class="btn-reserve">Reservar</a>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pabellón Municipal" 
+                                data-price="15,00€">
+                                Reservar
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -248,7 +294,12 @@
                                 <span class="price-label">Entrada</span>
                                 <span class="price-value">2,80€</span>
                             </div>
-                            <a href="#" class="btn-reserve">Comprar</a>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Piscina Municipal" 
+                                data-price="2,80€">
+                                Comprar
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -256,8 +307,53 @@
             </div>
         </section>
 
-        
     </main>
+
+    <!-- Estructura del Modal - Ventana emergente de Reservas "popup"-->
+    <aside id="reservation-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+        <div class="modal-container" tabindex="-1">
+            
+            <header class="modal-header">
+                <h2 id="modal-title">Reservar Instalación</h2>
+                <button type="button" id="close-modal" class="btn-close" aria-label="Cerrar modal">&times;</button>
+            </header>
+
+            <div class="modal-body">
+                <div class="selected-facility-info">
+                    <span class="info-label">Instalación:</span>
+                    <strong id="display-facility-name">---</strong>
+                </div>
+
+                <form id="reservation-form" novalidate>
+                    <div class="form-group">
+                        <label for="res-date">Fecha de la actividad</label>
+                        <input type="date" id="res-date" name="res-date" required>
+                        <span class="error-msg">Por favor, selecciona una fecha válida.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="res-time">Horarios disponibles</label>
+                        <select id="res-time" name="res-time" required>
+                            <option value="" disabled selected>Selecciona una franja</option>
+                            <option value="09:00">09:00 - 10:30 (Mañana)</option>
+                            <option value="11:00">11:00 - 12:30 (Mañana)</option>
+                            <option value="18:00">18:00 - 19:30 (Tarde)</option>
+                            <option value="20:00">20:00 - 21:30 (Noche)</option>
+                        </select>
+                    </div>
+
+                    <div class="reservation-summary">
+                        <p>Precio de la sesión: <span id="display-price">0,00€</span></p>
+                    </div>
+
+                    <footer class="modal-footer">
+                        <button type="submit" class="btn-confirm">Confirmar Reserva</button>
+                        <p class="terms-text">Al confirmar, aceptas las normas de uso del polideportivo.</p>
+                    </footer>
+                </form>
+            </div>
+        </div>
+    </aside>
 
     <script type="module" src="../js/main.js"></script>
 </body>

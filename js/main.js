@@ -3,6 +3,7 @@ import './components/MainHeader.js';
 import { toggleTheme, applySavedTheme } from "./functions/theme-logic.js";
 import { toggleMenu } from "./functions/menu-logic.js";
 import { initFilters } from "./instalaciones/filter-logic.js"; // <--- NUEVA IMPORTACIÓN 
+import { initReservationModal } from "./instalaciones/modal-logic.js"; // <--- NUEVA IMPORTACIÓN - 2
 
 
 // --- DEFINICIÓN DE LA FUNCIONALIDAD DE LOS BOTONES DE LA CABECERA --- 
@@ -24,9 +25,9 @@ const initApp = () => {
     }
 
 
-    // --- LÓGICA DE FILTROS ---
-    // Solo se ejecutará si existen los botones de filtro en el DOM
-    initFilters();
+    // --- LÓGICA DE INSTALACIONES ---
+    initFilters();      // <-- LÓGICA DE FILTROS | Solo se ejecutará si existen los botones de filtro en el DOM --
+    initReservationModal(); // <-- INICIALIZACIÓN DEL MODAL
 };
 
 
