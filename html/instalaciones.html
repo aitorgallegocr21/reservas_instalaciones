@@ -7,11 +7,353 @@
 
     <link rel="stylesheet" href="../css/design_reset.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/instalaciones_css/instalaciones_page.css">
+    <link rel="stylesheet" href="../css/instalaciones_css/instalaciones_modal_reserva.css">
+
 </head>
 <body>
     
     <!-- Cabecera o Header que se carga desde un archivo JS dependiendo de la página que es -->
     <main-header data-path="sub"></main-header>
+
+    <main class="facilities-page">
+        
+        <header class="facilities-hero">
+            <div class="container">
+                <h1>Nuestras Instalaciones</h1>
+                <p>Deporte y salud en el corazón de Argamasilla de Alba</p>
+            </div>
+        </header>
+
+        
+        <nav class="filters-wrapper" aria-label="Filtrar instalaciones">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="raqueta">Pádel/Tenis</button>
+            <button class="filter-btn" data-filter="futbol">Fútbol</button>
+            <button class="filter-btn" data-filter="basket">Baloncesto</button>
+            <button class="filter-btn" data-filter="pabellon">Pabellón</button>
+            <button class="filter-btn" data-filter="agua">Piscina</button>
+        </nav>
+
+        <section class="facilities-grid">
+            <div class="container">
+                
+                <!-- Pistas Padel -->
+                <article class="facility-card not-available" data-category="raqueta">  <!-- Ejemplo de pista no disponible -->
+                    <div class="card-media">
+                        <img src="../assets/img/instalaciones/pista_padel1.jpg" alt="Pista de Pádel 1">
+                        <span class="availability-badge busy">No disponible</span>  <!-- available / busy -->
+                    </div>
+                    <div class="card-content">
+                        <div class="title-area">
+                            <svg class="card-icon"><use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-padel"></use></svg>
+                            <h3>Pista de Pádel 1</h3>
+                        </div>
+                        <p>Pista cubierta de césped artificial. Equipada con iluminación y cerramiento perimetral completo.</p>
+                        <div class="card-action-area">
+                            <div class="price-tag">
+                                <span class="price-label">Hora</span>
+                                <span class="price-value">5,00€</span>
+                            </div>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista de Pádel 1" 
+                                data-price="5,00€">
+                                Reservar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="facility-card" data-category="raqueta">
+                    <div class="card-media">
+                        <img src="../assets/img/instalaciones/pista_padel2.jpg" alt="Pista de Pádel 2">
+                        <span class="availability-badge available">Disponible</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="title-area">
+                            <svg class="card-icon"><use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-padel"></use></svg>
+                            <h3>Pista de Pádel 2</h3>
+                        </div>
+                        <p>Instalación exterior con superficie de césped artificial azul. Dotada de iluminación y cerramiento perimetral completo.</p>
+                        <div class="card-action-area">
+                            <div class="price-tag">
+                                <span class="price-label">Hora</span>
+                                <span class="price-value">5,00€</span>
+                            </div>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista de Pádel 2" 
+                                data-price="5,00€">
+                                Reservar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="facility-card" data-category="raqueta">
+                    <div class="card-media">
+                        <img src="../assets/img/instalaciones/pista_padel3.jpg" alt="Pista de Pádel 3">
+                        <span class="availability-badge available">Disponible</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="title-area">
+                            <svg class="card-icon"><use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-padel"></use></svg>
+                            <h3>Pista de Pádel 3</h3>
+                        </div>
+                        <p>Excelente mantenimiento. Ideal para partidos intensos y torneos locales.</p>
+                        <div class="card-action-area">
+                            <div class="price-tag">
+                                <span class="price-label">Hora</span>
+                                <span class="price-value">5,00€</span>
+                            </div>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista de Pádel 3" 
+                                data-price="5,00€">
+                                Reservar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pistas Tenis -->
+                <article class="facility-card" data-category="raqueta">
+                    <div class="card-media">
+                        <img src="../assets/img/instalaciones/pista_tenis1.jpg" alt="Pista de Tenis 1">
+                        <span class="availability-badge available">Disponible</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="title-area">
+                            <svg class="card-icon"><use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-tenis"></use></svg>
+                            <h3>Pista de Tenis 1</h3>
+                        </div>
+                        <p>Pista exterior de resina sintética azul. Superficie rápida de gran visibilidad, equipada con iluminación profesional y vallado perimetral.</p>
+                        <div class="card-action-area">
+                            <div class="price-tag">
+                                <span class="price-label">Hora</span>
+                                <span class="price-value">5,00€</span>
+                            </div>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista de Tenis 1" 
+                                data-price="5,00€">
+                                Reservar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="facility-card" data-category="raqueta">
+                    <div class="card-media">
+                        <img src="../assets/img/instalaciones/pista_tenis2.jpg" alt="Pista de Tenis 2">
+                        <span class="availability-badge available">Disponible</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="title-area">
+                            <svg class="card-icon"><use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-tenis"></use></svg>
+                            <h3>Pista de Tenis 2</h3>
+                        </div>
+                        <p>Pista exterior de superficie rígida azul, con iluminación y vallado en entorno abierto.</p>
+                        <div class="card-action-area">
+                            <div class="price-tag">
+                                <span class="price-label">Hora</span>
+                                <span class="price-value">5,00€</span>
+                            </div>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista de Tenis 2" 
+                                data-price="5,00€">
+                                Reservar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pista Futbol Cesped -->
+                <article class="facility-card" data-category="futbol">
+                    <div class="card-media">
+                        <img src="../assets/img/instalaciones/campo_futbol_cesped.jpg" alt="Campo fútbol hierba">
+                        <span class="availability-badge available">Disponible</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="title-area">
+                            <svg class="card-icon"><use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-futbol"></use></svg>
+                            <h3>Campo de Fútbol Central</h3>
+                        </div>
+                        <p>Césped natural/artificial de alta densidad. Dimensiones reglamentarias para Fútbol 11.</p>
+                        <div class="card-action-area">
+                            <div class="price-tag">
+                                <span class="price-label">Desde</span>
+                                <span class="price-value">24,00€</span>
+                            </div>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Campo de Fútbol Central" 
+                                data-price="24,00€">
+                                Reservar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pista Baloncesto exterior -->
+                <article class="facility-card" data-category="basket">
+                    <div class="card-media">
+                        <img src="../assets/img/instalaciones/pista_basket_exterior.jpg" alt="Pista Baloncesto exterior">
+                        <span class="availability-badge available">Disponible</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="title-area">
+                            <svg class="card-icon"><use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-basket"></use></svg>
+                            <h3>Pista Baloncesto Exterior</h3>
+                        </div>
+                        <p>Cancha de césped artificial con cerramiento perimetral. Ideal para entrenamientos al aire libre y partidos en un entorno seguro y despejado.</p>
+                        <div class="card-action-area">
+                            <div class="price-tag">
+                                <span class="price-label">Hora</span>
+                                <span class="price-value">8,00€</span>
+                            </div>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista Baloncesto Exterior" 
+                                data-price="8,00€">
+                                Reservar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pista Futbol 7  -->
+                <article class="facility-card" data-category="futbol">
+                    <div class="card-media">
+                        <img src="../assets/img/instalaciones/pista_futbol_exterior.jpg" alt="Pista fútbol pequeña">
+                        <span class="availability-badge available">Disponible</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="title-area">
+                            <svg class="card-icon"><use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-futbol"></use></svg>
+                            <h3>Pista Fútbol Sala (Exterior)</h3>
+                        </div>
+                        <p>Pista exterior de superficie rígida azul. Equipada con iluminación para partidos nocturnos y vallado perimetral completo.</p>
+                        <div class="card-action-area">
+                            <div class="price-tag">
+                                <span class="price-label">Hora</span>
+                                <span class="price-value">8,00€</span>
+                            </div>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pista Fútbol Sala" 
+                                data-price="8,00€">
+                                Reservar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pabellon - Futbol Sala y Baloncesto -->
+                <article class="facility-card" data-category="pabellon">
+                    <div class="card-media">
+                        <img src="../assets/img/instalaciones/pabellon_interior.jpg" alt="Pabellón Municipal">
+                        <span class="availability-badge available">Disponible</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="title-area">
+                            <svg class="card-icon"><use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-multi"></use></svg>
+                            <h3>Pabellón Municipal</h3>
+                        </div>
+                        <p>Cancha polideportiva cubierta para fútbol sala, baloncesto y voleibol. El recinto dispone además de una sala anexa multifuncional.</p>
+                        <div class="card-action-area">
+                            <div class="price-tag">
+                                <span class="price-label">Hora</span>
+                                <span class="price-value">15,00€</span>
+                            </div>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Pabellón Municipal" 
+                                data-price="15,00€">
+                                Reservar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Piscina Municipal - Ejemplo de no disponibilidad -->
+                <article class="facility-card not-available" data-category="agua">  <!-- No disponible -->
+                    <div class="card-media"><img src="../assets/img/instalaciones/piscina.jpg" alt="Piscina de verano">
+                        <span class="availability-badge busy">Cerrado</span>     <!-- Cerrado -->
+                    </div>
+                    <div class="card-content">
+                        <div class="title-area">
+                            <svg class="card-icon"><use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-piscina"></use></svg>
+                            <h3>Piscina Municipal (Verano)</h3>
+                        </div>
+                        <p>Dos piscinas: adultos (33 m de largo, 16 m de ancho y profundidad entre 1,80 y 1,30 m) y niños (10×10 m y profundidad de 0,90 m).</p>
+                        <div class="card-action-area">
+                            <div class="price-tag">
+                                <span class="price-label">Entrada</span>
+                                <span class="price-value">2,80€</span>
+                            </div>
+                            <a href="#" 
+                                class="btn-reserve"
+                                data-facility="Piscina Municipal" 
+                                data-price="2,80€">
+                                Comprar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Estructura del Modal - Ventana emergente de Reservas "popup"-->
+    <aside id="reservation-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+        <div class="modal-container" tabindex="-1">
+            
+            <header class="modal-header">
+                <h2 id="modal-title">Reservar Instalación</h2>
+                <button type="button" id="close-modal" class="btn-close" aria-label="Cerrar modal">&times;</button>
+            </header>
+
+            <div class="modal-body">
+                <div class="selected-facility-info">
+                    <span class="info-label">Instalación:</span>
+                    <strong id="display-facility-name">---</strong>
+                </div>
+
+                <form id="reservation-form" novalidate>
+                    <div class="form-group">
+                        <label for="res-date">Fecha de la actividad</label>
+                        <input type="date" id="res-date" name="res-date" required>
+                        <span class="error-msg">Por favor, selecciona una fecha válida.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="res-time">Horarios disponibles</label>
+                        <select id="res-time" name="res-time" required>
+                            <option value="" disabled selected>Selecciona una franja</option>
+                            <option value="09:00">09:00 - 10:30 (Mañana)</option>
+                            <option value="11:00">11:00 - 12:30 (Mañana)</option>
+                            <option value="18:00">18:00 - 19:30 (Tarde)</option>
+                            <option value="20:00">20:00 - 21:30 (Noche)</option>
+                        </select>
+                    </div>
+
+                    <div class="reservation-summary">
+                        <p>Precio de la sesión: <span id="display-price">0,00€</span></p>
+                    </div>
+
+                    <footer class="modal-footer">
+                        <button type="submit" class="btn-confirm">Confirmar Reserva</button>
+                        <p class="terms-text">Al confirmar, aceptas las normas de uso del polideportivo.</p>
+                    </footer>
+                </form>
+            </div>
+        </div>
+    </aside>
 
     <script type="module" src="../js/main.js"></script>
 </body>
