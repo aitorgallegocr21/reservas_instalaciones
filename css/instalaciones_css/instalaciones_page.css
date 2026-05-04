@@ -105,10 +105,12 @@
     -webkit-font-smoothing: antialiased;
     transform: translateZ(1px); /* Un pequeño empujón en el eje Z */
 }
+
 /* ESTO ES PARA CUANDO UNA PISTA O ALGO NO ESTE DISPONIBLE - Se cambia manualmente en el html */
 .available { color: #27ae60; 
     border: 1px solid #27ae60; 
 }
+
 /* Badge de estado cerrado/ocupado */
 .busy { 
     color: #e74c3c; 
