@@ -1,8 +1,236 @@
 
+/* ==========================================================================
+   PÁGINA DE CONTACTO - (Split Layout)
+   ========================================================================== */
+
+/* 1. Header de la página (Hero) */
+.page-hero {
+    padding: 6rem 1.5rem 3rem;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(64, 134, 215, 0.8) 0%, rgba(68, 136, 214, 0.3) 70%, transparent 100%);
+}
+
+.page-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    color: var(--brand-primary);
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.page-hero p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 2. Layout Principal (Grid Dinámico) */
+.contact-layout {
+    padding-bottom: 5rem;
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+.split-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: 3rem;
+    align-items: start;
+}
+
+/* 3. Área de Detalles e Información */
+.info-cards-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-card {
+    background-color: var(--bg-header);
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.card-icon-wrapper {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--brand-secondary);
+    color: var(--brand-primary);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
 .contact-icon-svg {
     width: 1.5rem;
     height: 1.5rem;
-    fill: none;
     stroke: currentColor;
+    fill: none;
     stroke-width: 2;
+}
+
+.info-text h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.info-text p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* 4. Formulario de Contacto (Estilo Elite) */
+.contact-form-container {
+    background-color: var(--bg-header);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+.contact-form-container h2 {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: var(--text-main);
+}
+
+.accessible-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 0.85rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-header);
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 4px rgba(10, 77, 162, 0.1);
+}
+
+/* Checkbox de Privacidad */
+.form-group-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.form-group-checkbox input {
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: var(--brand-primary);
+    margin-top: 0.1rem;
+    cursor: pointer;
+}
+
+/* Botón de Enviar */
+.btn-confirm {
+    background-color: var(--brand-primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(10, 77, 162, 0.2);
+}
+
+.btn-confirm:hover {
+    background-color: #083d81;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(10, 77, 162, 0.3);
+}
+
+/* 5. Área del Mapa (Derecha) */
+.contact-map-area {
+    height: 100%;
+    min-height: 450px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    position: sticky;
+    top: 6rem; /* Se queda pegado al hacer scroll en escritorio */
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (Responsividad)
+   ========================================================================== */
+
+@media (min-width: 992px) {
+    .split-grid {
+        grid-template-columns: 1.2fr 0.8fr; /* El formulario es un poco más ancho que el mapa */
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+    
+    .contact-map-area {
+        height: 350px;
+        min-height: auto;
+    }
+}
+
+/* Adaptación Modo Oscuro Específica */
+[data-theme='dark'] .info-card {
+    background-color: #242424;
+}
+
+[data-theme='dark'] .contact-form-container {
+    background-color: #1a1a1a;
+}
+
+[data-theme='dark'] .form-group input, 
+[data-theme='dark'] .form-group select, 
+[data-theme='dark'] .form-group textarea {
+    background-color: #242424;
+    border-color: #333;
 }
