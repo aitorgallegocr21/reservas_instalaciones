@@ -5,13 +5,14 @@
 
 /* 1. Header de la página (Hero) */
 .page-hero {
-    padding: 6rem 1.5rem 3rem;
+    padding: 6rem 1.5rem 3rem;  
     text-align: center;
+    /* Degradado suave con 3 puntos de transición para eliminar línea visible */
     background: linear-gradient(to bottom, rgba(64, 134, 215, 0.8) 0%, rgba(68, 136, 214, 0.3) 70%, transparent 100%);
 }
 
 .page-hero h1 {
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);  /* Tamaño responsivo automático */
     color: var(--brand-primary);
     margin-bottom: 1rem;
     font-weight: 800;
@@ -20,8 +21,8 @@
 .page-hero p {
     color: var(--text-muted);
     font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 600px;  /* Ancho máximo para legibilidad */
+    margin: 0 auto;    /* Centrado horizontal */
 }
 
 /* 2. Layout Principal (Grid Dinámico) */
@@ -33,15 +34,15 @@
 
 .split-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Una columna en móvil */
-    gap: 3rem;
-    align-items: start;
+    grid-template-columns: 1fr; /* Una columna en móvil por defecto */
+    gap: 3rem;               
+    align-items: start;         /* Alineación superior para mejor layout */
 }
 
 /* 3. Área de Detalles e Información */
 .info-cards-wrapper {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;  /* Una columna para cards full-width */
     gap: 1.5rem;
     margin-bottom: 2rem;
 }
@@ -51,15 +52,15 @@
     padding: 1.5rem;
     border-radius: 1.25rem;
     display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
+    gap: 1.25rem;              /* Espacio entre icono y texto */
+    align-items: flex-start;      /* Alineación superior */
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
+    transform: translateY(-5px);  /* Elevación sutil al hover */
+    box-shadow: var(--shadow);     /* Sombra destacada */
 }
 
 .card-icon-wrapper {
@@ -94,13 +95,13 @@
     line-height: 1.5;
 }
 
-/* 4. Formulario de Contacto (Estilo Elite) */
+/* 4. Formulario de Contacto */
 .contact-form-container {
     background-color: var(--bg-header);
     padding: 2.5rem;
     border-radius: 1.5rem;
     border: 1px solid var(--border-color);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow);     /* Sombra sutil de profundidad */
 }
 
 .contact-form-container h2 {
@@ -111,7 +112,7 @@
 
 .accessible-form {
     display: grid;
-    gap: 1.5rem;
+    gap: 1.5rem;              /* Espaciado consistente entre campos */
 }
 
 .form-group {
@@ -188,13 +189,13 @@
 /* 5. Área del Mapa (Derecha) */
 .contact-map-area {
     height: 100%;
-    min-height: 450px;
+    min-height: 450px;          /* Altura mínima en desktop */
     border-radius: 1.5rem;
-    overflow: hidden;
+    overflow: hidden;            /* Evita scroll no deseado */
     box-shadow: var(--shadow);
     border: 1px solid var(--border-color);
-    position: sticky;
-    top: 6rem; /* Se queda pegado al hacer scroll en escritorio */
+    position: sticky;            /* Se mantiene visible al hacer scroll */
+    top: 6rem;                /* Distancia del header al pegarse */
 }
 
 /* ==========================================================================
@@ -210,27 +211,27 @@
 
 @media (max-width: 768px) {
     .contact-form-container {
-        padding: 1.5rem;
+        padding: 1.5rem;           /* Padding reducido en móvil */
     }
     
     .contact-map-area {
-        height: 350px;
-        min-height: auto;
+        height: 350px;             /* Altura reducida en móvil */
+        min-height: auto;           
     }
 }
 
 /* Adaptación Modo Oscuro Específica */
 [data-theme='dark'] .info-card {
-    background-color: #242424;
+    background-color: #242424;  /* Gris oscuro suave */
 }
 
 [data-theme='dark'] .contact-form-container {
-    background-color: #1a1a1a;
+    background-color: #1a1a1a;  /* Gris más oscuro para contraste */
 }
 
 [data-theme='dark'] .form-group input, 
 [data-theme='dark'] .form-group select, 
 [data-theme='dark'] .form-group textarea {
-    background-color: #242424;
-    border-color: #333;
+    background-color: #242424;  /* Fondo oscuro para inputs */
+    border-color: #333;          /* Borde sutil en modo oscuro */
 }
