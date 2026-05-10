@@ -29,6 +29,8 @@ const initApp = () => {
     // --- LÓGICA DE INSTALACIONES ---
     initFilters();      // <-- LÓGICA DE FILTROS | Solo se ejecutará si existen los botones de filtro en el DOM --
     initReservationModal(); // <-- INICIALIZACIÓN DEL MODAL
+
+    // --- LÓGICA DE MATCHMAKING ---
     initMatchmakingPage(); // <-- INICIALIZACIÓN DE LA PÁGINA DE MATCHMAKING
 };
 
