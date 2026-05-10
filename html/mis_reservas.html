@@ -1,18 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis reservas</title>
+    <title>Mis Reservas | Polideportivo Municipal</title>
 
+    <!-- Estilos base del sistema de diseño -->
     <link rel="stylesheet" href="../css/design_reset.css">
     <link rel="stylesheet" href="../css/header.css">
+    <!-- Estilos específicos de la página -->
+    <link rel="stylesheet" href="../css/mis_reservas_css/mis_reservas_page.css">
 </head>
 <body>
     
-    <!-- Cabecera o Header que se carga desde un archivo JS dependiendo de la página que es -->
+    <!-- Cabecera dinámica cargada por JS -->
     <main-header data-path="sub"></main-header>
 
+    <main class="reservations-page">
+        
+        <!-- HERO: Encabezado de la página -->
+        <header class="page-hero">
+            <div class="container">
+                <h1>Mis Reservas</h1>
+                <p>Gestiona tus alquileres de pistas y consulta tu historial de actividades.</p>
+            </div>
+        </header>
+
+        <!-- CONTENIDO PRINCIPAL: Lista de reservas -->
+        <section class="reservations-container">
+            <div class="container">
+                
+                <!-- SECCIÓN: Próximas Reservas Activas -->
+                <div class="res-group">
+                    <h2 class="group-title">
+                        <span class="title-indicator active"></span>
+                        Próximas Citas
+                    </h2>
+                    
+                    <div class="res-grid">
+                        
+                        <!-- MOCK DATA 1: Reserva Confirmada - Pádel -->
+                        <article class="res-card active">
+                            <div class="res-header">
+                                <span class="res-badge confirmed">Confirmada</span>
+                                <span class="res-id">#A42B</span>
+                            </div>
+                            
+                            <!-- Línea decorativa tipo ticket -->
+                            <div class="ticket-perforation"></div>
+                            
+                            <div class="res-body">
+                                <div class="res-icon">
+                                    <svg viewBox="0 0 24 24">
+                                        <use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-padel"></use>
+                                    </svg>
+                                </div>
+                                <div class="res-info">
+                                    <h3>Pista de Pádel 1</h3>
+                                    <p class="res-date">Mañana, 12 de Mayo</p>
+                                    <p class="res-time">18:30 - 20:00 <span class="duration">(90 min)</span></p>
+                                    <p class="res-location">Polideportivo Municipal Santiago García</p>
+                                </div>
+                            </div>
+                            
+                            <div class="res-footer">
+                                <button class="btn-cancel" title="Cancelar esta reserva">Cancelar reserva</button>
+                                <a href="#" class="btn-details">Ver detalles</a>
+                            </div>
+                        </article>
+
+                        <!-- MOCK DATA 2: Reserva Confirmada - Tenis -->
+                        <article class="res-card active">
+                            <div class="res-header">
+                                <span class="res-badge confirmed">Confirmada</span>
+                                <span class="res-id">#B78C</span>
+                            </div>
+                            
+                            <div class="ticket-perforation"></div>
+                            
+                            <div class="res-body">
+                                <div class="res-icon">
+                                    <svg viewBox="0 0 24 24">
+                                        <use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-tenis"></use>
+                                    </svg>
+                                </div>
+                                <div class="res-info">
+                                    <h3>Pista de Tenis 2</h3>
+                                    <p class="res-date">Viernes, 16 de Mayo</p>
+                                    <p class="res-time">10:00 - 11:30 <span class="duration">(90 min)</span></p>
+                                    <p class="res-location">Polideportivo Municipal Santiago García</p>
+                                </div>
+                            </div>
+                            
+                            <div class="res-footer">
+                                <button class="btn-cancel" title="Cancelar esta reserva">Cancelar reserva</button>
+                                <a href="#" class="btn-details">Ver detalles</a>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- SECCIÓN: Historial de Reservas Pasadas -->
+                <div class="res-group history">
+                    <h2 class="group-title">
+                        <span class="title-indicator"></span>
+                        Historial Reciente
+                    </h2>
+                    
+                    <div class="res-grid">
+                        
+                        <!-- MOCK DATA 3: Reserva Finalizada - Fútbol 7 -->
+                        <article class="res-card past">
+                            <div class="res-header">
+                                <span class="res-badge completed">Finalizada</span>
+                                <span class="res-id">#C93D</span>
+                            </div>
+                            
+                            <div class="ticket-perforation"></div>
+                            
+                            <div class="res-body">
+                                <div class="res-icon">
+                                    <svg viewBox="0 0 24 24">
+                                        <use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-futbol"></use>
+                                    </svg>
+                                </div>
+                                <div class="res-info">
+                                    <h3>Pista Fútbol Sala (Exterior)</h3>
+                                    <p class="res-date">Sábado, 3 de Mayo</p>
+                                    <p class="res-time">19:00 - 20:30 <span class="duration">(90 min)</span></p>
+                                    <p class="res-location">Polideportivo Municipal Santiago García</p>
+                                </div>
+                            </div>
+                            
+                            <div class="res-footer">
+                                <span class="res-price">8,00 €</span>
+                                <button class="btn-rebook">Reservar de nuevo</button>
+                            </div>
+                        </article>
+
+                        <!-- MOCK DATA 4: Reserva Finalizada - Pádel -->
+                        <article class="res-card past">
+                            <div class="res-header">
+                                <span class="res-badge completed">Finalizada</span>
+                                <span class="res-id">#D15E</span>
+                            </div>
+                            
+                            <div class="ticket-perforation"></div>
+                            
+                            <div class="res-body">
+                                <div class="res-icon">
+                                    <svg viewBox="0 0 24 24">
+                                        <use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-padel"></use>
+                                    </svg>
+                                </div>
+                                <div class="res-info">
+                                    <h3>Pista de Pádel 3</h3>
+                                    <p class="res-date">Martes, 29 de Abril</p>
+                                    <p class="res-time">17:00 - 18:00 <span class="duration">(60 min)</span></p>
+                                    <p class="res-location">Polideportivo Municipal Santiago García</p>
+                                </div>
+                            </div>
+                            
+                            <div class="res-footer">
+                                <span class="res-price">5,00 €</span>
+                                <button class="btn-rebook">Reservar de nuevo</button>
+                            </div>
+                        </article>
+
+                        <!-- MOCK DATA 5: Reserva Cancelada (ejemplo de estado alternativo) -->
+                        <article class="res-card past cancelled">
+                            <div class="res-header">
+                                <span class="res-badge cancelled">Cancelada</span>
+                                <span class="res-id">#E72F</span>
+                            </div>
+                            
+                            <div class="ticket-perforation"></div>
+                            
+                            <div class="res-body">
+                                <div class="res-icon">
+                                    <svg viewBox="0 0 24 24">
+                                        <use xlink:href="../assets/svg/instalaciones_svg/facilities_icons.svg#icon-basket"></use>
+                                    </svg>
+                                </div>
+                                <div class="res-info">
+                                    <h3>Pista Baloncesto Exterior</h3>
+                                    <p class="res-date">Domingo, 20 de Abril</p>
+                                    <p class="res-time">11:00 - 12:00 <span class="duration">(60 min)</span></p>
+                                    <p class="res-location">Polideportivo Municipal Santiago García</p>
+                                </div>
+                            </div>
+                            
+                            <div class="res-footer">
+                                <span class="res-price res-refunded">Reembolsado</span>
+                                <button class="btn-rebook">Reservar de nuevo</button>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts principales -->
     <script type="module" src="../js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,346 @@
+
+/* ==========================================================================
+   PÁGINA DE MIS RESERVAS
+   ========================================================================== */
+
+/* 1. Header de la página (Hero) */
+.page-hero {
+    padding: 6rem 1.5rem 3rem; 
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(0, 115, 247, 0.2) 0%, rgba(68, 136, 214, 0.05) 70%, transparent 100%);
+}
+
+.page-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);  /* Tamaño responsivo automático */
+    color: var(--brand-primary);
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.page-hero p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;  /* Ancho máximo para legibilidad */
+    margin: 0 auto;    /* Centrado horizontal */
+}
+
+/* Contenedor principal con espacio en los bordes */
+.reservations-container {
+    padding: 0 1.5rem 5rem;  /* Espacio lateral para que las cards no estén pegadas */
+    max-width: 1200px;       /* Ancho máximo del contenido */
+    margin: 0 auto;          /* Centrado horizontal */
+}
+
+.res-group {
+    margin-bottom: 4rem;
+}
+
+/* Título de sección con indicador visual */
+.group-title {
+    font-size: 1.25rem;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Indicador circular del estado de la sección */
+.title-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #a0aec0;  /* Gris por defecto (historial) */
+    flex-shrink: 0;
+}
+
+.title-indicator.active {
+    background: #48bb78;  /* Verde para próximas citas activas */
+    box-shadow: 0 0 8px rgba(72, 187, 120, 0.4);
+}
+
+/* Grid de Reservas - Responsive */
+.res-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));  /* Cards más anchas para mejor legibilidad */
+    gap: 2rem; 
+}
+
+/* Responsive: En tablets, una sola columna más ancha */
+@media (max-width: 768px) {
+    .res-grid {
+        grid-template-columns: 1fr;  /* Una columna en móvil/tablet */
+        gap: 1.5rem;
+    }
+    
+    .reservations-container {
+        padding: 0 1rem 3rem;  /* Menos padding en móvil */
+    }
+}
+
+/* Responsive: En móviles pequeños */
+@media (max-width: 480px) {
+    .res-grid {
+        gap: 1rem;
+    }
+    
+    .res-card {
+        padding: 1.25rem;  /* Padding reducido en móvil */
+    }
+}
+
+/* Tarjeta de Reserva (Tipo Ticket) */
+.res-card {
+    background: var(--bg-header);
+    border: 1px solid var(--border-color);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.res-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+    border-color: var(--brand-primary);
+}
+
+/* Header de la tarjeta */
+.res-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.res-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+}
+
+.res-badge.confirmed { 
+    background: #e6fffa; 
+    color: #234e52; 
+    border: 1px solid #81e6d9;
+}
+
+.res-badge.completed { 
+    background: #f7fafc; 
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+}
+
+.res-badge.cancelled { 
+    background: #fff5f5; 
+    color: #c53030;
+    border: 1px solid #feb2b2;
+}
+
+.res-id {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Cuerpo de la tarjeta */
+.res-body {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.res-icon {
+    width: 3.5rem;           /* Ligeramente más grande */
+    height: 3.5rem;
+    background: var(--brand-secondary);
+    color: var(--brand-primary);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.res-icon svg {
+    width: 2.25rem;          
+    height: 2.25rem;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+}
+
+/* Alineación del cuerpo de la card - icono alineado arriba con el título */
+.res-body {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;  /* Alineación superior para que el icono esté arriba */
+}
+
+.res-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Fecha destacada en azul */
+.res-date {
+    color: var(--brand-primary);  /* Azul primario para destacar */
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Franja horaria */
+.res-time {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Duración entre paréntesis */
+.duration {
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* Ubicación de la instalación */
+.res-location {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.75rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color);  /* Separador sutil */
+}
+
+/* Línea de perforación tipo ticket */
+.ticket-perforation {
+    height: 8px;
+    background-image: radial-gradient(circle, transparent 4px, var(--border-color) 4px);
+    background-size: 16px 100%;
+    background-position: center;
+    background-repeat: repeat-x;
+    opacity: 0.5;
+    margin: 0.5rem 0;
+}
+
+/* Footer de la tarjeta con línea punteada */
+.res-footer {
+    padding-top: 1.25rem;
+    border-top: 2px dashed var(--border-color);  /* Línea más gruesa tipo ticket */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;  /* Permite que los botones salten de línea si no caben */
+}
+
+.btn-cancel {
+    background: transparent;
+    color: #e53e3e;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: opacity 0.2s;
+}
+
+.btn-cancel:hover { opacity: 0.7; }
+
+.btn-rebook, .btn-details {
+    padding: 0.6rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-details {
+    background: var(--brand-primary);
+    color: white;
+}
+
+.btn-rebook {
+    background: var(--brand-secondary);
+    color: var(--brand-primary);
+    cursor: pointer;  /* Cursor pointer para indicar interactividad */
+}
+
+/* Estilo para Historial - cards más apagadas */
+.res-card.past {
+    opacity: 0.85;
+    background: #f8fafc;  /* Fondo ligeramente gris */
+}
+
+.res-card.past .res-icon {
+    background: #e2e8f0;
+    color: #718096;
+}
+
+/* Estilo específico para reservas canceladas */
+.res-card.cancelled .res-icon {
+    background: #fed7d7;
+    color: #c53030;
+}
+
+.res-card.cancelled {
+    opacity: 0.7;
+    background: #fff5f5;
+}
+
+/* Precio en el footer */
+.res-price {
+    font-weight: 700;
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+/* Estado reembolsado - texto en rojo */
+.res-refunded {
+    color: #c53030;
+    font-weight: 600;
+}
+
+/* Modo Oscuro - Cards activas */
+[data-theme='dark'] .res-card { background: #1a1a1a; }
+[data-theme='dark'] .res-badge.confirmed { background: #1c4532; color: #9ae6b4; }
+
+/* Modo Oscuro - Cards de historial (past) */
+[data-theme='dark'] .res-card.past {
+    background: #1f1f1f;  /* Gris oscuro, ligeramente diferente para distinguir */
+    opacity: 0.9;
+}
+
+[data-theme='dark'] .res-card.past .res-icon {
+    background: #2d3748;
+    color: #a0aec0;
+}
+
+/* Modo Oscuro - Cards canceladas */
+[data-theme='dark'] .res-card.cancelled {
+    background: #2d1f1f;  /* Rojo muy oscuro */
+    opacity: 0.85;
+}
+
+[data-theme='dark'] .res-card.cancelled .res-icon {
+    background: #4a2c2c;
+    color: #fc8181;
+}
+
+/* Modo Oscuro - Badges de historial */
+[data-theme='dark'] .res-badge.completed { 
+    background: #2d3748; 
+    color: #a0aec0;
+    border-color: #4a5568;
+}
+
+[data-theme='dark'] .res-badge.cancelled { 
+    background: #4a2c2c; 
+    color: #fc8181;
+    border-color: #742a2a;
+}
