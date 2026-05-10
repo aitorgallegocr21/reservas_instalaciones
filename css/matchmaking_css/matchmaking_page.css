@@ -1,7 +1,7 @@
 .matchmaking-hero {
     padding: 6rem 1.5rem 3rem;
     text-align: center;
-    background: linear-gradient(to bottom, rgba(64, 134, 215, 0.8) 0%, rgba(68, 136, 214, 0.3) 70%, transparent 100%);
+    background: linear-gradient(to bottom, rgba(64, 134, 215, 0.2) 0%, rgba(68, 136, 214, 0.05) 70%, transparent 100%);
 }
 
 .matchmaking-hero .container {
@@ -23,11 +23,15 @@
     margin: 0 auto;
 }
 
+
+
+/* --- LAYOUT Y CONTENEDORES --- */
 .matchmaking-layout {
     display: grid;
     grid-template-columns: minmax(0, 1.8fr) minmax(300px, 1fr);
     gap: 2rem;
     margin-top: 2rem;
+    padding-bottom: 5rem;
 }
 
 .matchmaking-card,
@@ -35,22 +39,27 @@
     background: var(--bg-header);
     border: 1px solid var(--border-color);
     border-radius: 1.5rem;
-    box-shadow: 0 24px 50px rgba(57, 63, 72, 0.08);
+    box-shadow: var(--shadow);
     padding: 2rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .card-header h2,
 .summary-card h2 {
     margin: 0 0 0.5rem;
     font-size: 1.6rem;
+    color: var(--text-main);
 }
 
 .card-header p,
 .summary-card p {
     margin: 0;
-    color: #555;
+    color: var(--text-muted);
 }
 
+
+
+/* --- FORMULARIOS E INPUTS --- */
 .matchmaking-form .field-group {
     display: flex;
     flex-direction: column;
@@ -61,33 +70,41 @@
 .matchmaking-form label {
     font-weight: 600;
     font-size: 0.95rem;
+    color: var(--text-main);
 }
 
 .matchmaking-form input,
 .matchmaking-form select {
-    border: 1px solid #d4d7dd;
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 0.95rem 1rem;
     font-size: 1rem;
-    background: #fff;
+    background: var(--bg-header);
+    color: var(--text-main);
     outline: none;
-    transition: border-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
+.matchmaking-form input:focus,
+.matchmaking-form select:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+
+
+/* Estilo para campos de solo lectura (Plazas restantes) */
 .readonly-value {
     min-height: 3rem;
-    border: 1px solid #d4d7dd;
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 0.95rem 1rem;
     font-size: 1rem;
     display: flex;
     align-items: center;
-    background: #f8fbff;
-    color: #0f172a;
-}
-.matchmaking-form input:focus,
-.matchmaking-form select:focus {
-    border-color: #1d91c7;
+    background: var(--brand-secondary);
+    color: var(--brand-primary);
+    font-weight: 700;
 }
 
 .field-row {
@@ -127,6 +144,9 @@
     gap: 0.75rem;
 }
 
+
+
+/* --- ELEMENTOS DE LISTA (MIEMBROS) --- */
 .member-item,
 .summary-members li {
     display: flex;
@@ -134,9 +154,15 @@
     align-items: center;
     gap: 1rem;
     padding: 0.95rem 1rem;
-    background: #f7fbff;
+    background: var(--brand-secondary);
     border-radius: 14px;
-    border: 1px solid #e2e7ef;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+.member-item strong {
+    color: var(--text-main);
 }
 
 .member-item div {
@@ -149,8 +175,8 @@
 }
 
 .member-item span {
-    color: #4a5568;
-    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
 }
 
 .empty {
@@ -160,9 +186,15 @@
 .remove-member {
     border: none;
     background: transparent;
-    color: #d64545;
+    color: #e74c3c;
     font-weight: 700;
     cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.remove-member:hover {
+    background: rgba(231, 76, 60, 0.1);
 }
 
 .actions-row {
@@ -172,13 +204,16 @@
     flex-wrap: wrap;
 }
 
+
+
+/* --- BOTONES DE LA PÁGINA --- */
 .matchmaking-page .btn {
     border: none;
-    border-radius: 999px;
+    border-radius: 12px;
     padding: 0.95rem 1.45rem;
     cursor: pointer;
     font-weight: 700;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .matchmaking-page .btn:hover {
@@ -186,26 +221,27 @@
 }
 
 .matchmaking-page .btn-primary {
-    background: #1d91c7;
+    background: var(--brand-primary);
     color: #ffffff;
 }
 
 .matchmaking-page .btn-secondary {
-    background: #e2edf7;
-    color: #1f2937;
+    background: var(--brand-secondary);
+    color: var(--brand-primary);
 }
 
 .matchmaking-page .btn-tab {
-    background: #e7eef8;
-    color: #1d293b;
-    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
     border-radius: 999px;
-    padding: 0.85rem 1.2rem;
+    padding: 0.7rem 1.2rem;
 }
 
 .matchmaking-page .btn-tab-active {
-    background: #1d91c7;
+    background: var(--brand-primary);
     color: #ffffff;
+    border-color: var(--brand-primary);
 }
 
 .matchmaking-page .btn-filter-toggle {
@@ -235,15 +271,19 @@
     gap: 0.3rem;
 }
 
+
+
+/* --- RESUMEN (SIDEBAR) --- */
 .summary-list dt {
-    font-size: 0.95rem;
-    color: #6b7280;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
 }
 
 .summary-list dd {
-    margin: 0;
+    margin: 0 0 1rem 0;
     font-weight: 700;
-    color: #111827;
+    color: var(--text-main);
 }
 
 .matchmaking-summary {
@@ -316,17 +356,19 @@
     gap: 1rem;
 }
 
+/* --- CARDS DE PARTIDOS ABIERTOS --- */
 .match-card {
     background: var(--bg-header);
     border: 1px solid var(--border-color);
     border-radius: 1.5rem;
-    padding: 1.4rem;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
 }
 
 .match-card.selected {
     border-color: var(--brand-primary);
-    box-shadow: 0 22px 45px rgba(10, 77, 162, 0.15);
+    box-shadow: 0 0 0 2px var(--brand-primary);
 }
 
 .match-card:hover {
@@ -354,13 +396,13 @@
 
 .match-sport {
     display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.4rem 0.75rem;
+    padding: 0.35rem 0.8rem;
     border-radius: 999px;
-    background: rgba(29, 145, 199, 0.12);
-    color: #0d4f7c;
-    font-weight: 700;
+    background: var(--brand-secondary);
+    color: var(--brand-primary);
+    font-weight: 800;
+    font-size: 0.75rem;
+    text-transform: uppercase;
 }
 
 .match-card p {
@@ -374,10 +416,33 @@
 
 
 
-/* MEDIA QUERYS --------------------------------------------------------- */
+/* --- AJUSTES ESPECÍFICOS MODO OSCURO --- */
+[data-theme='dark'] .matchmaking-card,
+[data-theme='dark'] .summary-card,
+[data-theme='dark'] .match-card {
+    background-color: #1e1e1e; /* Un gris ligeramente más claro que el fondo base para dar volumen */
+}
+
+[data-theme='dark'] .matchmaking-form input,
+[data-theme='dark'] .matchmaking-form select {
+    background-color: #121212;
+}
+
+[data-theme='dark'] .readonly-value,
+[data-theme='dark'] .member-item,
+[data-theme='dark'] .match-sport {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+
+
+/* --- RESPONSIVIDAD --- */
 @media (max-width: 1024px) {
     .matchmaking-layout {
         grid-template-columns: 1fr;
+    }
+    .matchmaking-summary {
+        position: static;
     }
 }
 
