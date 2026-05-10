@@ -4,9 +4,11 @@
     background: linear-gradient(to bottom, rgba(64, 134, 215, 0.2) 0%, rgba(68, 136, 214, 0.05) 70%, transparent 100%);
 }
 
-.matchmaking-hero .container {
+.matchmaking-hero .container,
+.matchmaking-layout.container {
     max-width: 1180px;
     margin: 0 auto;
+    padding: 0 1.5rem; /* Margen de seguridad para que no toque los bordes del navegador */
 }
 
 .matchmaking-hero h1 {
@@ -26,11 +28,17 @@
 
 
 /* --- LAYOUT Y CONTENEDORES --- */
+
+/* Añade un margen generoso al final de la página para que el contenido "respire" */
+.matchmaking-page {
+    padding-bottom: 2rem; /* Esto empuja el final de la página hacia abajo */
+}
+
 .matchmaking-layout {
     display: grid;
     grid-template-columns: minmax(0, 1.8fr) minmax(300px, 1fr);
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 3rem; /* Aumentamos un poco el margen superior */
     padding-bottom: 5rem;
 }
 
@@ -115,9 +123,17 @@
     margin-bottom: 1.3rem;
 }
 
+/* Aseguramos que el grid alinee los elementos por su base (el fondo de la caja) */
 .field-row.inline-actions {
+    display: grid;
     grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr) auto;
-    align-items: end;
+    gap: 1rem;
+    align-items: flex-end; 
+    margin-bottom: 1.5rem;
+}
+
+.field-row .field-group {
+    margin-bottom: 0;
 }
 
 .section-subtitle {
@@ -135,13 +151,28 @@
     font-size: 1.1rem;
 }
 
-.members-list,
+/* Separación para la lista de miembros en el resumen */
 .summary-members {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.members-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
     gap: 0.75rem;
+}
+
+/* Espaciado en el título de la tarjeta de resumen */
+.summary-members-card h3 {
+    margin: 1.5rem 0 1rem; /* Añade margen arriba para separar del dl y abajo para la lista */
+    font-size: 1.1rem;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
 }
 
 
@@ -207,6 +238,7 @@
 
 
 /* --- BOTONES DE LA PÁGINA --- */
+
 .matchmaking-page .btn {
     border: none;
     border-radius: 12px;
@@ -228,6 +260,19 @@
 .matchmaking-page .btn-secondary {
     background: var(--brand-secondary);
     color: var(--brand-primary);
+}
+
+/* Ajustamos el botón para que sea un espejo exacto del input en tamaño y fuente */
+.matchmaking-page .add-member-btn {
+    height: auto; /* Dejamos que el padding mande */
+    padding: 0.95rem 1.5rem; /* El mismo padding vertical que el input (0.95rem) */
+    font-size: 1rem; /* La misma fuente que el input */
+    line-height: 1.2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* Eliminamos cualquier margen que pueda tener por defecto */
+    margin: 0; 
 }
 
 .matchmaking-page .btn-tab {
