@@ -1,0 +1,503 @@
+.matchmaking-hero {
+    padding: 6rem 1.5rem 3rem;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(64, 134, 215, 0.2) 0%, rgba(68, 136, 214, 0.05) 70%, transparent 100%);
+}
+
+.matchmaking-hero .container,
+.matchmaking-layout.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Margen de seguridad para que no toque los bordes del navegador */
+}
+
+.matchmaking-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    color: var(--brand-primary);
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.matchmaking-hero p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+
+/* --- LAYOUT Y CONTENEDORES --- */
+
+/* Añade un margen generoso al final de la página para que el contenido "respire" */
+.matchmaking-page {
+    padding-bottom: 2rem; /* Esto empuja el final de la página hacia abajo */
+}
+
+.matchmaking-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(300px, 1fr);
+    gap: 2rem;
+    margin-top: 3rem; /* Aumentamos un poco el margen superior */
+    padding-bottom: 5rem;
+}
+
+.matchmaking-card,
+.summary-card {
+    background: var(--bg-header);
+    border: 1px solid var(--border-color);
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.card-header h2,
+.summary-card h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.6rem;
+    color: var(--text-main);
+}
+
+.card-header p,
+.summary-card p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+
+
+/* --- FORMULARIOS E INPUTS --- */
+.matchmaking-form .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.3rem;
+}
+
+.matchmaking-form label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.matchmaking-form input,
+.matchmaking-form select {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.95rem 1rem;
+    font-size: 1rem;
+    background: var(--bg-header);
+    color: var(--text-main);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.matchmaking-form input:focus,
+.matchmaking-form select:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+
+
+/* Estilo para campos de solo lectura (Plazas restantes) */
+.readonly-value {
+    min-height: 3rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.95rem 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    background: var(--brand-secondary);
+    color: var(--brand-primary);
+    font-weight: 700;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: flex-end;
+    margin-bottom: 1.3rem;
+}
+
+/* Aseguramos que el grid alinee los elementos por su base (el fondo de la caja) */
+.field-row.inline-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr) auto;
+    gap: 1rem;
+    align-items: flex-end; 
+    margin-bottom: 1.5rem;
+}
+
+.field-row .field-group {
+    margin-bottom: 0;
+}
+
+.section-subtitle {
+    margin: 0 0 1rem;
+    font-weight: 700;
+    color: #1d91c7;
+}
+
+.members-panel {
+    margin-bottom: 1.5rem;
+}
+
+.members-panel h3 {
+    margin: 0 0 0.8rem;
+    font-size: 1.1rem;
+}
+
+/* Separación para la lista de miembros en el resumen */
+.summary-members {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.members-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+/* Espaciado en el título de la tarjeta de resumen */
+.summary-members-card h3 {
+    margin: 1.5rem 0 1rem; /* Añade margen arriba para separar del dl y abajo para la lista */
+    font-size: 1.1rem;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+
+
+/* --- ELEMENTOS DE LISTA (MIEMBROS) --- */
+.member-item,
+.summary-members li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.95rem 1rem;
+    background: var(--brand-secondary);
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+.member-item strong {
+    color: var(--text-main);
+}
+
+.member-item div {
+    display: grid;
+    gap: 0.25rem;
+}
+
+.member-item strong {
+    font-weight: 700;
+}
+
+.member-item span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.empty {
+    color: #6b7280;
+}
+
+.remove-member {
+    border: none;
+    background: transparent;
+    color: #e74c3c;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.remove-member:hover {
+    background: rgba(231, 76, 60, 0.1);
+}
+
+.actions-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+
+
+/* --- BOTONES DE LA PÁGINA --- */
+
+.matchmaking-page .btn {
+    border: none;
+    border-radius: 12px;
+    padding: 0.95rem 1.45rem;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.matchmaking-page .btn:hover {
+    transform: translateY(-1px);
+}
+
+.matchmaking-page .btn-primary {
+    background: var(--brand-primary);
+    color: #ffffff;
+}
+
+.matchmaking-page .btn-secondary {
+    background: var(--brand-secondary);
+    color: var(--brand-primary);
+}
+
+/* Ajustamos el botón para que sea un espejo exacto del input en tamaño y fuente */
+.matchmaking-page .add-member-btn {
+    height: auto; /* Dejamos que el padding mande */
+    padding: 0.95rem 1.5rem; /* El mismo padding vertical que el input (0.95rem) */
+    font-size: 1rem; /* La misma fuente que el input */
+    line-height: 1.2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* Eliminamos cualquier margen que pueda tener por defecto */
+    margin: 0; 
+}
+
+.matchmaking-page .btn-tab {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.7rem 1.2rem;
+}
+
+.matchmaking-page .btn-tab-active {
+    background: var(--brand-primary);
+    color: #ffffff;
+    border-color: var(--brand-primary);
+}
+
+.matchmaking-page .btn-filter-toggle {
+    margin-left: auto;
+    min-width: 120px;
+}
+
+.matchmaking-page .btn-filter-toggle.btn-tab-active {
+    background: #1d91c7;
+    color: #ffffff;
+}
+
+.matchmaking-page .btn-clear-filters {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+.summary-list {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.summary-list div {
+    display: grid;
+    gap: 0.3rem;
+}
+
+
+
+/* --- RESUMEN (SIDEBAR) --- */
+.summary-list dt {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+}
+
+.summary-list dd {
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.matchmaking-summary {
+    position: sticky;
+    top: 1.8rem;
+    align-self: start;
+}
+
+.matchmaking-tabs {
+    display: flex;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.matchmaking-filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background: #ffffff;
+    border: 1px solid #d4d7dd;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.06);
+}
+
+.filter-panel-header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.35rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #e2e7ef;
+}
+
+.filter-panel-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.matchmaking-filters .field-group {
+    margin-bottom: 0;
+}
+
+.matchmaking-filters select {
+    min-height: 3rem;
+    background: #f8fbff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.matchmaking-view-hidden {
+    display: none;
+}
+
+.matchmaking-summary-hidden {
+    display: none;
+}
+
+.open-matches {
+    display: grid;
+    gap: 1rem;
+}
+
+/* --- CARDS DE PARTIDOS ABIERTOS --- */
+.match-card {
+    background: var(--bg-header);
+    border: 1px solid var(--border-color);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.match-card.selected {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 2px var(--brand-primary);
+}
+
+.match-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+}
+
+.match-card-header strong {
+    color: var(--text-main);
+}
+
+.match-card p {
+    margin: 0.3rem 0;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.match-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+}
+
+.match-sport {
+    display: inline-flex;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: var(--brand-secondary);
+    color: var(--brand-primary);
+    font-weight: 800;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.match-card p {
+    margin: 0.35rem 0;
+    color: #344054;
+}
+
+.btn-join-match {
+    margin-top: 1rem;
+}
+
+
+
+/* --- AJUSTES ESPECÍFICOS MODO OSCURO --- */
+[data-theme='dark'] .matchmaking-card,
+[data-theme='dark'] .summary-card,
+[data-theme='dark'] .match-card {
+    background-color: #1e1e1e; /* Un gris ligeramente más claro que el fondo base para dar volumen */
+}
+
+[data-theme='dark'] .matchmaking-form input,
+[data-theme='dark'] .matchmaking-form select {
+    background-color: #121212;
+}
+
+[data-theme='dark'] .readonly-value,
+[data-theme='dark'] .member-item,
+[data-theme='dark'] .match-sport {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 1024px) {
+    .matchmaking-layout {
+        grid-template-columns: 1fr;
+    }
+    .matchmaking-summary {
+        position: static;
+    }
+}
+
+@media (max-width: 680px) {
+    .field-row,
+    .field-row.inline-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .matchmaking-page {
+        padding: 1.5rem 0 3rem;
+    }
+}

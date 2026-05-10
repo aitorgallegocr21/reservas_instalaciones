@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,204 @@
 
     <link rel="stylesheet" href="../css/design_reset.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/matchmaking_css/matchmaking_page.css">
 </head>
 <body>
     
     <!-- Cabecera o Header que se carga desde un archivo JS dependiendo de la página que es -->
     <main-header data-path="sub"></main-header>
+
+    <main class="matchmaking-page">
+        <section class="matchmaking-hero">
+            <div class="container">
+                <h1>Buscar compañero</h1>
+                <p>Crea una reserva abierta con plazas disponibles y únete a partidos que otros jugadores están creando.</p>
+            </div>
+        </section>
+
+        <section class="matchmaking-layout container">
+            <article class="matchmaking-card">
+                <header class="card-header">
+                    <h2>Matchmaking Social</h2>
+                    <p>Elige crear tu propia reserva o únete a un partido ya existente.</p>
+                </header>
+
+                <div class="matchmaking-tabs" role="tablist">
+                    <button id="tab-create" type="button" class="btn btn-tab" role="tab" aria-selected="false">Crear reserva</button>
+                    <button id="tab-open" type="button" class="btn btn-tab btn-tab-active" role="tab" aria-selected="true">Partidos abiertos</button>
+                    <button id="filter-toggle" type="button" class="btn btn-tab btn-filter-toggle" aria-controls="filter-panel" aria-expanded="false">Filtrar</button>
+                </div>
+
+                <section id="view-create" class="matchmaking-view matchmaking-view-hidden">
+                    <form id="matchmaking-form" class="matchmaking-form">
+                    <div class="field-group">
+                        <label for="sport-select">Deporte</label>
+                        <select id="sport-select" name="sport" required>
+                            <option value="Pádel">Pádel</option>
+                            <option value="Tenis">Tenis</option>
+                            <option value="Fútbol">Fútbol</option>
+                            <option value="Baloncesto">Baloncesto</option>
+                            <option value="Natación">Natación</option>
+                        </select>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="reservation-title">Nombre del partido</label>
+                        <input id="reservation-title" type="text" name="reservationTitle" placeholder="Ej. Partido de Pádel tarde" required>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="field-group">
+                            <label for="match-date">Fecha y hora</label>
+                            <input id="match-date" type="datetime-local" name="matchDate" required>
+                        </div>
+                        <div class="field-group">
+                            <label for="main-level">Mi nivel</label>
+                            <select id="main-level" name="myLevel">
+                                <option value="Iniciación">Iniciación</option>
+                                <option value="Intermedio" selected>Intermedio</option>
+                                <option value="Avanzado">Avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="field-group">
+                            <label for="total-spots">Plazas totales</label>
+                            <input id="total-spots" type="number" name="totalSpots" min="2" value="4" required>
+                        </div>
+                        <div class="field-group">
+                            <label>Plazas restantes</label>
+                            <div id="available-spots" class="readonly-value">3</div>
+                        </div>
+                    </div>
+
+                    <div class="section-subtitle">Agregar miembros</div>
+                    <div class="field-row inline-actions">
+                        <div class="field-group">
+                            <label for="member-name">Nombre del compañero</label>
+                            <input id="member-name" type="text" placeholder="Ej. Ana Martínez">
+                        </div>
+                        <div class="field-group">
+                            <label for="member-level">Nivel</label>
+                            <select id="member-level">
+                                <option value="Iniciación">Iniciación</option>
+                                <option value="Intermedio" selected>Intermedio</option>
+                                <option value="Avanzado">Avanzado</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-secondary add-member-btn" id="add-member-btn">Agregar miembro</button>
+                    </div>
+
+                    <div class="members-panel">
+                        <h3>Miembros añadidos</h3>
+                        <ul class="members-list" id="members-list">
+                            <li class="empty">No hay miembros añadidos.</li>
+                        </ul>
+                    </div>
+
+                    <div class="actions-row">
+                        <button type="submit" class="btn btn-primary">Crear reserva</button>
+                        <button type="button" class="btn btn-secondary" id="reset-match-btn">Limpiar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="view-open" class="matchmaking-view matchmaking-view-visible">
+                <div id="filter-panel" class="matchmaking-filters">
+                    <div class="filter-panel-header">
+                        <h3>Filtros</h3>
+                        <button type="button" class="btn btn-secondary btn-clear-filters" id="clear-filters-btn">Limpiar</button>
+                    </div>
+                    <div class="field-group">
+                        <label for="filter-sport">Filtrar por deporte</label>
+                        <select id="filter-sport">
+                            <option value="all">Todos</option>
+                            <option value="Pádel">Pádel</option>
+                            <option value="Tenis">Tenis</option>
+                            <option value="Fútbol">Fútbol</option>
+                            <option value="Baloncesto">Baloncesto</option>
+                            <option value="Natación">Natación</option>
+                        </select>
+                    </div>
+                    <div class="field-group">
+                        <label for="filter-level">Filtrar por nivel</label>
+                        <select id="filter-level">
+                            <option value="all">Todos</option>
+                            <option value="Iniciación">Iniciación</option>
+                            <option value="Intermedio">Intermedio</option>
+                            <option value="Avanzado">Avanzado</option>
+                        </select>
+                    </div>
+                </div>
+                <p id="no-matches-message" class="empty hidden">No hay partidos que coincidan con los filtros.</p>
+                <div class="open-matches">
+                    <article class="match-card" data-match-id="match-1" data-match-sport="Pádel" data-match-title="Partido de tarde - 3 plazas" data-match-date="20/05/2026 18:30" data-match-level="Intermedio" data-match-location="Pista de Pádel 2" data-match-total="4" data-match-available="3" data-match-participants="Julián|Avanzado;María|Intermedio;Óscar|Intermedio">
+                        <div class="match-card-header">
+                            <span class="match-sport">Pádel</span>
+                            <strong>Partido de tarde - 3 plazas</strong>
+                        </div>
+                        <p>Fecha: 20/05/2026 18:30</p>
+                        <p>Nivel buscado: Intermedio</p>
+                        <p>Ubicación: Pista de Pádel 2</p>
+                        <button type="button" class="btn btn-primary btn-join-match">Unirme</button>
+                    </article>
+                    <article class="match-card" data-match-id="match-2" data-match-sport="Tenis" data-match-title="Dobles mixto" data-match-date="21/05/2026 17:00" data-match-level="Iniciación / Intermedio" data-match-location="Pista de Tenis 1" data-match-total="4" data-match-available="2" data-match-participants="Lucía|Iniciación;Carlos|Intermedio;Elena|Iniciación">
+                        <div class="match-card-header">
+                            <span class="match-sport">Tenis</span>
+                            <strong>Dobles mixto</strong>
+                        </div>
+                        <p>Fecha: 21/05/2026 17:00</p>
+                        <p>Nivel buscado: Iniciación / Intermedio</p>
+                        <p>Ubicación: Pista de Tenis 1</p>
+                        <button type="button" class="btn btn-primary btn-join-match">Unirme</button>
+                    </article>
+                </div>
+            </section>
+            </article>
+
+            <aside class="matchmaking-summary">
+                <div class="summary-card">
+                    <h2 id="summary-mode-title">Resumen del partido</h2>
+                    <p id="summary-mode-description">Revisa la configuración de tu reserva antes de crearla.</p>
+
+                    <dl class="summary-list">
+                        <div>
+                            <dt>Deporte</dt>
+                            <dd id="summary-sport">Pádel</dd>
+                        </div>
+                        <div>
+                            <dt>Título</dt>
+                            <dd id="summary-title">Sin título</dd>
+                        </div>
+                        <div>
+                            <dt>Fecha</dt>
+                            <dd id="summary-date">Pendiente</dd>
+                        </div>
+                        <div>
+                            <dt>Mi nivel</dt>
+                            <dd id="summary-main-level">Intermedio</dd>
+                        </div>
+                        <div>
+                            <dt>Plazas totales</dt>
+                            <dd id="summary-total">4</dd>
+                        </div>
+                        <div>
+                            <dt>Plazas restantes</dt>
+                            <dd id="summary-available">3</dd>
+                        </div>
+                    </dl>
+
+                    <div class="summary-members-card">
+                        <h3 id="summary-members-title">Jugadores registrados</h3>
+                        <ul id="summary-members" class="summary-members">
+                            <li class="empty">Aún no hay jugadores agregados.</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </main>
 
     <script type="module" src="../js/main.js"></script>
 </body>

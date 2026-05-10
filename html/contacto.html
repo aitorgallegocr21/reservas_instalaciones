@@ -7,11 +7,113 @@
 
     <link rel="stylesheet" href="../css/design_reset.css">
     <link rel="stylesheet" href="../css/header.css">
+
+    <link rel="stylesheet" href="../css/contacto_css/contacto_page.css">
 </head>
 <body>
     
     <!-- Cabecera o Header que se carga desde un archivo JS dependiendo de la página que es -->
     <main-header data-path="sub"></main-header>
+
+    <main class="contact-page">
+        
+        <header class="page-hero">
+            <div>
+                <h1>Contacto y Ubicación</h1>
+                <p>Ven a visitarnos o envíanos un mensaje. Estamos aquí para ayudarte.</p>
+            </div>
+        </header>
+
+        <section class="contact-layout">
+            <div class="split-grid">
+                
+                <div class="contact-details-area">
+                    
+                    <div class="info-cards-wrapper">
+                        <article class="info-card">
+                            <div class="card-icon-wrapper">
+                                <svg viewBox="0 0 24 24" class="contact-icon-svg">
+                                    <use xlink:href="../assets/svg/contacto_svg/contact_icons.svg#icon-location"></use>
+                                </svg>
+                            </div>
+                            <div class="info-text">
+                                <h3>Dónde estamos</h3>
+                                <p>C. Carretera, s/n<br>13710 Argamasilla de Alba, Ciudad Real</p>
+                            </div>
+                        </article>
+
+                        <article class="info-card">
+                            <div class="card-icon-wrapper">
+                                <svg viewBox="0 0 24 24" class="contact-icon-svg">
+                                    <use xlink:href="../assets/svg/contacto_svg/contact_icons.svg#icon-clock"></use>
+                                </svg>
+                            </div>
+                            <div class="info-text">
+                                <h3>Horario de Apertura</h3>
+                                <p><strong>Martes a Viernes:</strong> 16:00 a 21:00 (verano: 18:00 a 23:00)<br>
+                                <strong>Sábado:</strong> 9:00 a 14:00 y 17:00 a 22:00 (verano: 18:00 a 23:00)<br>
+                                <strong>Domingo:</strong> 9:00 a 14:00</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <h2>Envíanos un mensaje</h2>
+                        <form id="contact-form" class="accessible-form" novalidate>  <!-- novalidate - para ignorar los required -->
+                            <div class="form-group">
+                                <label for="userName">Nombre completo</label>
+                                <input type="text" id="userName" name="userName" placeholder="Ej. Ana García" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userEmail">Correo electrónico</label>
+                                <input type="email" id="userEmail" name="userEmail" placeholder="tu@email.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userSubject">Asunto</label>
+                                <select id="userSubject" name="userSubject" required>
+                                    <option value="" disabled selected>Selecciona un motivo...</option>
+                                    <option value="duda">Duda sobre instalaciones</option>
+                                    <option value="problema">Problema con una reserva</option>
+                                    <option value="sugerencia">Sugerencia</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userMessage">Mensaje</label>
+                                <textarea id="userMessage" name="userMessage" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                            </div>
+
+                            <div class="form-group-checkbox">
+                                <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
+                                <label for="privacyPolicy">He leído y acepto la <a href="#">política de privacidad</a>.</label>
+                            </div>
+
+                            <button type="submit" class="btn-confirm">Enviar Mensaje</button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="contact-map-area">
+                <iframe 
+                    src="https://maps.google.com/maps?q=Polideportivo+Municipal+Santiago+Garcia,+Ctra.+Manzanares,+KM+0+1,+13710+Argamasilla+de+Alba,+Ciudad+Real,+España&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Mapa de ubicación del Polideportivo Municipal Santiago García">
+                </iframe>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
 
     <script type="module" src="../js/main.js"></script>
 </body>
