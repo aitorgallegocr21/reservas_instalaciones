@@ -4,6 +4,7 @@ import { toggleTheme, applySavedTheme } from "./functions/theme-logic.js";
 import { toggleMenu } from "./functions/menu-logic.js";
 import { initFilters } from "./instalaciones/filter-logic.js";
 import { initReservationModal } from "./instalaciones/modal-logic.js";
+import { initMatchmakingPage } from "./matchmaking/matchmaking-logic.js";
 
 
 
@@ -28,6 +29,7 @@ const initApp = () => {
     // --- LÓGICA DE INSTALACIONES ---
     initFilters();      // <-- LÓGICA DE FILTROS | Solo se ejecutará si existen los botones de filtro en el DOM --
     initReservationModal(); // <-- INICIALIZACIÓN DEL MODAL
+    initMatchmakingPage(); // <-- INICIALIZACIÓN DE LA PÁGINA DE MATCHMAKING
 };
 
 

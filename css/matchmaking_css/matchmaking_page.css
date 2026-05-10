@@ -1,0 +1,390 @@
+.matchmaking-hero {
+    padding: 6rem 1.5rem 3rem;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(64, 134, 215, 0.8) 0%, rgba(68, 136, 214, 0.3) 70%, transparent 100%);
+}
+
+.matchmaking-hero .container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.matchmaking-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    color: var(--brand-primary);
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.matchmaking-hero p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.matchmaking-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(300px, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.matchmaking-card,
+.summary-card {
+    background: var(--bg-header);
+    border: 1px solid var(--border-color);
+    border-radius: 1.5rem;
+    box-shadow: 0 24px 50px rgba(57, 63, 72, 0.08);
+    padding: 2rem;
+}
+
+.card-header h2,
+.summary-card h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.6rem;
+}
+
+.card-header p,
+.summary-card p {
+    margin: 0;
+    color: #555;
+}
+
+.matchmaking-form .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.3rem;
+}
+
+.matchmaking-form label {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.matchmaking-form input,
+.matchmaking-form select {
+    border: 1px solid #d4d7dd;
+    border-radius: 12px;
+    padding: 0.95rem 1rem;
+    font-size: 1rem;
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.readonly-value {
+    min-height: 3rem;
+    border: 1px solid #d4d7dd;
+    border-radius: 12px;
+    padding: 0.95rem 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    background: #f8fbff;
+    color: #0f172a;
+}
+.matchmaking-form input:focus,
+.matchmaking-form select:focus {
+    border-color: #1d91c7;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: flex-end;
+    margin-bottom: 1.3rem;
+}
+
+.field-row.inline-actions {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr) auto;
+    align-items: end;
+}
+
+.section-subtitle {
+    margin: 0 0 1rem;
+    font-weight: 700;
+    color: #1d91c7;
+}
+
+.members-panel {
+    margin-bottom: 1.5rem;
+}
+
+.members-panel h3 {
+    margin: 0 0 0.8rem;
+    font-size: 1.1rem;
+}
+
+.members-list,
+.summary-members {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.member-item,
+.summary-members li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.95rem 1rem;
+    background: #f7fbff;
+    border-radius: 14px;
+    border: 1px solid #e2e7ef;
+}
+
+.member-item div {
+    display: grid;
+    gap: 0.25rem;
+}
+
+.member-item strong {
+    font-weight: 700;
+}
+
+.member-item span {
+    color: #4a5568;
+    font-size: 0.95rem;
+}
+
+.empty {
+    color: #6b7280;
+}
+
+.remove-member {
+    border: none;
+    background: transparent;
+    color: #d64545;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.actions-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border: none;
+    border-radius: 999px;
+    padding: 0.95rem 1.45rem;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: #1d91c7;
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background: #e2edf7;
+    color: #1f2937;
+}
+
+.summary-list {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.summary-list div {
+    display: grid;
+    gap: 0.3rem;
+}
+
+.summary-list dt {
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+
+.summary-list dd {
+    margin: 0;
+    font-weight: 700;
+    color: #111827;
+}
+
+.matchmaking-summary {
+    position: sticky;
+    top: 1.8rem;
+    align-self: start;
+}
+
+.matchmaking-tabs {
+    display: flex;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.btn-filter-toggle {
+    margin-left: auto;
+    min-width: 120px;
+}
+
+.btn-filter-toggle.btn-tab-active {
+    background: #1d91c7;
+    color: #ffffff;
+}
+
+.matchmaking-filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background: #ffffff;
+    border: 1px solid #d4d7dd;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.06);
+}
+
+.filter-panel-header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.35rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #e2e7ef;
+}
+
+.filter-panel-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.btn-clear-filters {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+.matchmaking-filters .field-group {
+    margin-bottom: 0;
+}
+
+.matchmaking-filters select {
+    min-height: 3rem;
+    background: #f8fbff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.btn-tab {
+    background: #e7eef8;
+    color: #1d293b;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 0.85rem 1.2rem;
+}
+
+.btn-tab-active {
+    background: #1d91c7;
+    color: #ffffff;
+}
+
+.matchmaking-view-hidden {
+    display: none;
+}
+
+.matchmaking-summary-hidden {
+    display: none;
+}
+
+.open-matches {
+    display: grid;
+    gap: 1rem;
+}
+
+.match-card {
+    background: var(--bg-header);
+    border: 1px solid var(--border-color);
+    border-radius: 1.5rem;
+    padding: 1.4rem;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.match-card.selected {
+    border-color: var(--brand-primary);
+    box-shadow: 0 22px 45px rgba(10, 77, 162, 0.15);
+}
+
+.match-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+}
+
+.match-card-header strong {
+    color: var(--text-main);
+}
+
+.match-card p {
+    margin: 0.3rem 0;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.match-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+}
+
+.match-sport {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(29, 145, 199, 0.12);
+    color: #0d4f7c;
+    font-weight: 700;
+}
+
+.match-card p {
+    margin: 0.35rem 0;
+    color: #344054;
+}
+
+.btn-join-match {
+    margin-top: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .matchmaking-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .field-row,
+    .field-row.inline-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .matchmaking-page {
+        padding: 1.5rem 0 3rem;
+    }
+}
