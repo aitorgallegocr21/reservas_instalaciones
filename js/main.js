@@ -2,9 +2,9 @@
 import './components/MainHeader.js';
 import { toggleTheme, applySavedTheme } from "./functions/theme-logic.js";
 import { toggleMenu } from "./functions/menu-logic.js";
-import { initFilters } from "./instalaciones/filter-logic.js";
-import { initReservationModal } from "./instalaciones/modal-logic.js";
-import { initMatchmakingPage } from "./matchmaking/matchmaking-logic.js";
+import { initFilters } from "./pages/instalaciones/filter-logic.js";
+import { initReservationModal } from "./pages/instalaciones/modal-logic.js";
+import { initMatchmakingPage } from "./pages/matchmaking/matchmaking-logic.js";
 
 
 
