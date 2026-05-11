@@ -75,48 +75,67 @@
     margin-bottom: 1.3rem;
 }
 
-.matchmaking-form label {
+/* Busca esta regla y añade el selector de filtros */
+.matchmaking-form label,
+.matchmaking-filters label {
     font-weight: 600;
     font-size: 0.95rem;
     color: var(--text-main);
 }
 
+/* Base unificada para Inputs y Selectores */
 .matchmaking-form input,
-.matchmaking-form select {
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 0.95rem 1rem;
+.matchmaking-form select,
+.matchmaking-filters select {
+    border: 1.5px solid var(--border-color); /* Borde un poco más grueso pero suave */
+    border-radius: 14px; /* Curvatura más orgánica y moderna */
+    padding: 0.95rem 1.25rem;
     font-size: 1rem;
-    background: var(--bg-header);
+    font-weight: 500; /* Texto con un poco más de cuerpo para legibilidad */
+    background-color: var(--bg-header);
     color: var(--text-main);
     outline: none;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transición más suave y elástica */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02); /* Sombra interna casi imperceptible */
 }
 
 /* Estilos para todos los selectores de la página de matchmaking */
 .matchmaking-form select,
 .matchmaking-filters select {
-    appearance: none;         /* Elimina la flecha por defecto */
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     
-    /* Añadimos un icono SVG de flecha como fondo */
+    /* Flecha personalizada */
     background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%230a4da2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
-    background-repeat: no-repeat;
     
-    /* POSICIÓN: Aquí controlamos que no esté pegada al borde (1.25rem de margen derecho) */
-    background-position: right 1.25rem center;
-    background-size: 1.1rem;
+    /* PROPIEDADES CRÍTICAS PARA EVITAR REPETICIÓN */
+    background-repeat: no-repeat !important;
+    background-position: right 1.25rem center !important;
+    background-size: 1.1rem !important;
     
-    /* Aumentamos el padding derecho para que el texto no se monte sobre la flecha */
-    padding-right: 3rem !important; 
+    padding-right: 3.5rem !important;
     cursor: pointer;
 }
 
-.matchmaking-form input:focus,
-.matchmaking-form select:focus {
+/* Interacción: Estado HOVER (Feedback visual sutil) */
+.matchmaking-form input:hover,
+.matchmaking-form select:hover,
+.matchmaking-filters select:hover {
     border-color: var(--brand-primary);
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    background-color: var(--brand-secondary); /* Un tinte muy suave del color de marca */
+    transform: translateY(-1px); /* Elevación sutilísima */
+}
+
+/* Interacción: Estado FOCUS (Anillo de luz) */
+.matchmaking-form input:focus,
+.matchmaking-form select:focus,
+.matchmaking-filters select:focus {
+    border-color: var(--brand-primary);
+    background-color: var(--bg-header);
+    /* Anillo de enfoque translúcido para no ser agresivo */
+    box-shadow: 0 0 0 4px rgba(10, 77, 162, 0.12); 
+    transform: translateY(0);
 }
 
 
@@ -370,11 +389,11 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
     margin-bottom: 1.5rem;
-    background: #ffffff;
-    border: 1px solid #d4d7dd;
+    background: var(--bg-header); 
+    border: 1px solid var(--border-color);
     border-radius: 1rem;
     padding: 1.25rem;
-    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.06);
+    box-shadow: var(--shadow); 
 }
 
 .filter-panel-header {
@@ -385,14 +404,16 @@
     gap: 1rem;
     padding-bottom: 0.35rem;
     margin-bottom: 0.75rem;
-    border-bottom: 1px solid #e2e7ef;
+    /* CAMBIO: Borde dinámico */
+    border-bottom: 1px solid var(--border-color); 
 }
 
 .filter-panel-header h3 {
     margin: 0;
     font-size: 1rem;
     font-weight: 700;
-    color: #0f172a;
+    /* CAMBIO: Color de texto principal del tema */
+    color: var(--text-main); 
 }
 
 .matchmaking-filters .field-group {
@@ -401,8 +422,9 @@
 
 .matchmaking-filters select {
     min-height: 3rem;
-    background-color: var(--bg-header); /* Usa el fondo dinámico del tema */
+    background-color: var(--bg-header); 
     border: 1px solid var(--border-color);
+    color: var(--text-main);
 }
 
 .hidden {
@@ -485,20 +507,39 @@
 /* --- AJUSTES ESPECÍFICOS MODO OSCURO --- */
 [data-theme='dark'] .matchmaking-card,
 [data-theme='dark'] .summary-card,
-[data-theme='dark'] .match-card {
-    background-color: #1e1e1e; /* Un gris ligeramente más claro que el fondo base para dar volumen */
+[data-theme='dark'] .match-card,
+[data-theme='dark'] .matchmaking-filters {
+    background-color: #1e1e1e; 
 }
 
-[data-theme='dark'] .matchmaking-form input,
-[data-theme='dark'] .matchmaking-form select {
-    background-color: #121212;
+[data-theme='dark'] .matchmaking-form input {
+    background-color: #1a1a1a;
+    border-color: #2d3640;
+    /* Chevron en azul claro para contraste en modo oscuro */
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%233498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>');
 }
 
-/* Ajuste de color de flecha para Modo Oscuro */
+/* BLOQUE MAESTRO PARA SELECTORES EN MODO OSCURO */
 [data-theme='dark'] .matchmaking-form select,
 [data-theme='dark'] .matchmaking-filters select {
-    /* Cambiamos el color stroke a un azul más claro (%233498db) para visibilidad */
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%233498db" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    /* Fondo oscuro y borde */
+    background-color: #121212 !important;
+    border-color: #2d3640 !important;
+    
+    /* Imagen de la flecha en azul claro */
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%233498db" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>') !important;
+    
+    /* REFUERZO DE SEGURIDAD (Para que no se repita nunca) */
+    background-repeat: no-repeat !important;
+    background-position: right 1.25rem center !important;
+    background-size: 1.1rem !important;
+}
+
+[data-theme='dark'] .matchmaking-form input:hover,
+[data-theme='dark'] .matchmaking-form select:hover,
+[data-theme='dark'] .matchmaking-filters select:hover {
+    background-color: rgba(52, 152, 219, 0.05); /* Efecto cristalino oscuro */
+    border-color: var(--brand-primary);
 }
 
 [data-theme='dark'] .readonly-value,
