@@ -30,7 +30,6 @@ export const initMatchmakingPage = () => {
     const openMatchesContainer = document.querySelector('.open-matches');
     const filterSport = document.getElementById('filter-sport');
     const filterLevel = document.getElementById('filter-level');
-    const filterToggle = document.getElementById('filter-toggle');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
     const noMatchesMessage = document.getElementById('no-matches-message');
     const filterPanel = document.querySelector('.matchmaking-filters');
@@ -214,13 +213,8 @@ export const initMatchmakingPage = () => {
         tabOpen.classList.toggle('btn-tab-active', !isCreate);
         tabCreate.setAttribute('aria-selected', isCreate.toString());
         tabOpen.setAttribute('aria-selected', (!isCreate).toString());
-        filterToggle.classList.toggle('hidden', isCreate);
 
         if (isCreate) {
-            filterPanel.classList.add('hidden');
-            filterToggle.classList.remove('btn-tab-active');
-            filterToggle.textContent = 'Filtrar';
-            filterToggle.setAttribute('aria-expanded', 'false');
             summaryModeTitle.textContent = 'Resumen del partido';
             summaryModeDescription.textContent = 'Revisa la configuración de tu reserva antes de crearla.';
             summaryMembersTitle.textContent = 'Jugadores registrados';
@@ -253,13 +247,6 @@ export const initMatchmakingPage = () => {
             selectMatch(card);
         });
     }
-
-    filterToggle.addEventListener('click', () => {
-        const isHidden = filterPanel.classList.toggle('hidden');
-        filterToggle.classList.toggle('btn-tab-active', !isHidden);
-        filterToggle.setAttribute('aria-expanded', String(!isHidden));
-        filterToggle.textContent = isHidden ? 'Filtrar' : 'Ocultar filtros';
-    });
 
     filterSport.addEventListener('change', filterMatches);
     filterLevel.addEventListener('change', filterMatches);
@@ -295,11 +282,6 @@ export const initMatchmakingPage = () => {
     const firstMatch = matchCards.find(card => card.style.display !== 'none');
     if (firstMatch) selectMatch(firstMatch);
     filterMatches();
-    
-    // Initialize filter button visibility - should be visible on open view
-    if (filterToggle) {
-        filterToggle.classList.remove('hidden');
-    }
     
     switchMatchmakingView('open');
 
