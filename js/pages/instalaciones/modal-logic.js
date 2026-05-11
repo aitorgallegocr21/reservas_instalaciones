@@ -52,6 +52,8 @@ export const initReservationModal = () => {
         reservationForm.reset();
     };
 
+
+    
     // --- EVENTOS ---
 
     // Asignamos el evento a todos los botones de "Reservar"

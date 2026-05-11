@@ -72,31 +72,76 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-bottom: 1.3rem;
+    margin-bottom: 1rem;
 }
 
-.matchmaking-form label {
+/* Busca esta regla y añade el selector de filtros */
+.matchmaking-form label,
+.matchmaking-filters label {
     font-weight: 600;
     font-size: 0.95rem;
     color: var(--text-main);
 }
 
+/* --- ESTILOS COMUNES (Inputs y Selects) --- */
 .matchmaking-form input,
-.matchmaking-form select {
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 0.95rem 1rem;
+.matchmaking-form select,
+.matchmaking-filters select {
+    border: 1.5px solid var(--border-color);
+    border-radius: 14px;
+    padding: 0.95rem 1.25rem;
     font-size: 1rem;
-    background: var(--bg-header);
+    font-weight: 500;
+    background-color: var(--bg-header);
     color: var(--text-main);
     outline: none;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    width: 100%;
 }
 
-.matchmaking-form input:focus,
-.matchmaking-form select:focus {
+/* --- LÓGICA FUNCIONAL DE SELECTORES (Solo Selects) --- */
+.matchmaking-form select,
+.matchmaking-filters select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    padding-right: 3.5rem !important;
+    
+    /* Reglas de oro para que la flecha NO se repita */
+    background-repeat: no-repeat !important;
+    background-position: right 1.25rem center !important;
+    background-size: 1.1rem !important;
+    
+    /* Flecha para Modo Claro (Azul Oscuro) */
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%230a4da2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+}
+
+/* Estilo específico de los selectores del contenedor de filtros */
+.field-group #filter-sport,
+.field-group #filter-level {
+    margin-top: 0.5rem;
+}
+
+/* Interacción: Estado HOVER (Feedback visual sutil) */
+.matchmaking-form input:hover,
+.matchmaking-form select:hover,
+.matchmaking-filters select:hover {
     border-color: var(--brand-primary);
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    background-color: var(--brand-secondary); /* Un tinte muy suave del color de marca */
+    transform: translateY(-1px); /* Elevación sutilísima */
+}
+
+/* Interacción: Estado FOCUS (Anillo de luz) */
+.matchmaking-form input:focus,
+.matchmaking-form select:focus,
+.matchmaking-filters select:focus {
+    border-color: var(--brand-primary);
+    background-color: var(--bg-header);
+    /* Anillo de enfoque translúcido para no ser agresivo */
+    box-shadow: 0 0 0 4px rgba(10, 77, 162, 0.12); 
+    transform: translateY(0);
 }
 
 
@@ -350,11 +395,11 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
     margin-bottom: 1.5rem;
-    background: #ffffff;
-    border: 1px solid #d4d7dd;
+    background: var(--bg-header); 
+    border: 1px solid var(--border-color);
     border-radius: 1rem;
     padding: 1.25rem;
-    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.06);
+    box-shadow: var(--shadow); 
 }
 
 .filter-panel-header {
@@ -364,15 +409,17 @@
     justify-content: space-between;
     gap: 1rem;
     padding-bottom: 0.35rem;
-    margin-bottom: 0.75rem;
-    border-bottom: 1px solid #e2e7ef;
+    margin-bottom: 0.5rem;
+    /* CAMBIO: Borde dinámico */
+    border-bottom: 1px solid var(--border-color); 
 }
 
 .filter-panel-header h3 {
     margin: 0;
     font-size: 1rem;
     font-weight: 700;
-    color: #0f172a;
+    /* CAMBIO: Color de texto principal del tema */
+    color: var(--text-main); 
 }
 
 .matchmaking-filters .field-group {
@@ -381,7 +428,9 @@
 
 .matchmaking-filters select {
     min-height: 3rem;
-    background: #f8fbff;
+    background-color: var(--bg-header); 
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
 }
 
 .hidden {
@@ -462,21 +511,44 @@
 
 
 /* --- AJUSTES ESPECÍFICOS MODO OSCURO --- */
+
+/* 1. Contenedores y Tarjetas */
 [data-theme='dark'] .matchmaking-card,
 [data-theme='dark'] .summary-card,
-[data-theme='dark'] .match-card {
-    background-color: #1e1e1e; /* Un gris ligeramente más claro que el fondo base para dar volumen */
+[data-theme='dark'] .match-card,
+[data-theme='dark'] .matchmaking-filters {
+    background-color: #1e1e1e;
 }
 
-[data-theme='dark'] .matchmaking-form input,
-[data-theme='dark'] .matchmaking-form select {
-    background-color: #121212;
+/* 2. Estilos para CAMPOS DE TEXTO (Input) - Sin flechas */
+[data-theme='dark'] .matchmaking-form input {
+    background-color: #1a1a1a;
+    border-color: #2d3640;
+    background-image: none !important; /* Asegura que no haya flechas aquí */
 }
 
+/* 3. Estilos para DESPLEGABLES (Select) - Con flecha clara */
+[data-theme='dark'] .matchmaking-form select,
+[data-theme='dark'] .matchmaking-filters select {
+    background-color: #121212 !important;
+    border-color: #2d3640 !important;
+    /* Flecha en Azul Claro para contraste */
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%233498db" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>') !important;
+}
+
+/* 4. Otros elementos dinámicos */
 [data-theme='dark'] .readonly-value,
 [data-theme='dark'] .member-item,
 [data-theme='dark'] .match-sport {
     background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* 5. Hovers en modo oscuro */
+[data-theme='dark'] .matchmaking-form input:hover,
+[data-theme='dark'] .matchmaking-form select:hover,
+[data-theme='dark'] .matchmaking-filters select:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+    border-color: var(--brand-primary);
 }
 
 
