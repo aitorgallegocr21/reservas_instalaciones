@@ -132,10 +132,8 @@ export const initMatchmakingPage = () => {
 
     const renderOpenSummary = (card) => {
         if (!card) {
-            summaryModeTitle.textContent = 'Partidos abiertos';
-            summaryModeDescription.textContent = 'Selecciona un partido abierto para ver su resumen y participantes.';
             summarySport.textContent = '--';
-            summaryTitle.textContent = 'Ningún partido seleccionado';
+            summaryTitle.textContent = '--';
             summaryDate.textContent = '--';
             summaryMainLevel.textContent = '--';
             summaryTotal.textContent = '--';
@@ -220,6 +218,7 @@ export const initMatchmakingPage = () => {
             summaryMembersTitle.textContent = 'Jugadores registrados';
             renderSummary();
         } else {
+            summaryMembersTitle.textContent = 'Participantes';
             renderOpenSummary(selectedMatchCard);
         }
     };
@@ -279,9 +278,11 @@ export const initMatchmakingPage = () => {
 
     resetMatchButton.addEventListener('click', resetMatchmaking);
 
-    const firstMatch = matchCards.find(card => card.style.display !== 'none');
-    if (firstMatch) selectMatch(firstMatch);
+    resetMatchmaking();
+    
     filterMatches();
+    selectedMatchCard = null;
+    matchCards.forEach(card => card.classList.remove('selected'));
     
     switchMatchmakingView('open');
 
@@ -314,6 +315,4 @@ export const initMatchmakingPage = () => {
         alert(`Reserva creada.\nDeporte: ${sport}\nPartido: ${title}\nFecha: ${summaryDate.textContent}\nTu nivel: ${myLevelSelect.value}\nMiembros añadidos: ${members.length}\nPlazas totales: ${total}`);
         resetMatchmaking();
     });
-
-    resetMatchmaking();
 };
