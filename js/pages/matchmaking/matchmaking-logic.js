@@ -30,7 +30,6 @@ export const initMatchmakingPage = () => {
     const openMatchesContainer = document.querySelector('.open-matches');
     const filterSport = document.getElementById('filter-sport');
     const filterLevel = document.getElementById('filter-level');
-    const filterToggle = document.getElementById('filter-toggle');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
     const noMatchesMessage = document.getElementById('no-matches-message');
     const filterPanel = document.querySelector('.matchmaking-filters');
@@ -133,10 +132,8 @@ export const initMatchmakingPage = () => {
 
     const renderOpenSummary = (card) => {
         if (!card) {
-            summaryModeTitle.textContent = 'Partidos abiertos';
-            summaryModeDescription.textContent = 'Selecciona un partido abierto para ver su resumen y participantes.';
             summarySport.textContent = '--';
-            summaryTitle.textContent = 'Ningún partido seleccionado';
+            summaryTitle.textContent = '--';
             summaryDate.textContent = '--';
             summaryMainLevel.textContent = '--';
             summaryTotal.textContent = '--';
@@ -214,18 +211,14 @@ export const initMatchmakingPage = () => {
         tabOpen.classList.toggle('btn-tab-active', !isCreate);
         tabCreate.setAttribute('aria-selected', isCreate.toString());
         tabOpen.setAttribute('aria-selected', (!isCreate).toString());
-        filterToggle.classList.toggle('hidden', isCreate);
 
         if (isCreate) {
-            filterPanel.classList.add('hidden');
-            filterToggle.classList.remove('btn-tab-active');
-            filterToggle.textContent = 'Filtrar';
-            filterToggle.setAttribute('aria-expanded', 'false');
             summaryModeTitle.textContent = 'Resumen del partido';
             summaryModeDescription.textContent = 'Revisa la configuración de tu reserva antes de crearla.';
             summaryMembersTitle.textContent = 'Jugadores registrados';
             renderSummary();
         } else {
+            summaryMembersTitle.textContent = 'Participantes';
             renderOpenSummary(selectedMatchCard);
         }
     };
@@ -253,13 +246,6 @@ export const initMatchmakingPage = () => {
             selectMatch(card);
         });
     }
-
-    filterToggle.addEventListener('click', () => {
-        const isHidden = filterPanel.classList.toggle('hidden');
-        filterToggle.classList.toggle('btn-tab-active', !isHidden);
-        filterToggle.setAttribute('aria-expanded', String(!isHidden));
-        filterToggle.textContent = isHidden ? 'Filtrar' : 'Ocultar filtros';
-    });
 
     filterSport.addEventListener('change', filterMatches);
     filterLevel.addEventListener('change', filterMatches);
@@ -292,14 +278,11 @@ export const initMatchmakingPage = () => {
 
     resetMatchButton.addEventListener('click', resetMatchmaking);
 
-    const firstMatch = matchCards.find(card => card.style.display !== 'none');
-    if (firstMatch) selectMatch(firstMatch);
-    filterMatches();
+    resetMatchmaking();
     
-    // Initialize filter button visibility - should be visible on open view
-    if (filterToggle) {
-        filterToggle.classList.remove('hidden');
-    }
+    filterMatches();
+    selectedMatchCard = null;
+    matchCards.forEach(card => card.classList.remove('selected'));
     
     switchMatchmakingView('open');
 
@@ -332,6 +315,4 @@ export const initMatchmakingPage = () => {
         alert(`Reserva creada.\nDeporte: ${sport}\nPartido: ${title}\nFecha: ${summaryDate.textContent}\nTu nivel: ${myLevelSelect.value}\nMiembros añadidos: ${members.length}\nPlazas totales: ${total}`);
         resetMatchmaking();
     });
-
-    resetMatchmaking();
 };

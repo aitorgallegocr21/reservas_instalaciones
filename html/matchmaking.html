@@ -32,7 +32,6 @@
                 <div class="matchmaking-tabs" role="tablist">
                     <button id="tab-create" type="button" class="btn btn-tab" role="tab" aria-selected="false">Crear reserva</button>
                     <button id="tab-open" type="button" class="btn btn-tab btn-tab-active" role="tab" aria-selected="true">Partidos abiertos</button>
-                    <button id="filter-toggle" type="button" class="btn btn-tab btn-filter-toggle" aria-controls="filter-panel" aria-expanded="false">Filtrar</button>
                 </div>
 
                 <section id="view-create" class="matchmaking-view matchmaking-view-hidden">
@@ -139,7 +138,7 @@
                 </div>
                 <p id="no-matches-message" class="empty hidden">No hay partidos que coincidan con los filtros.</p>
                 <div class="open-matches">
-                    <article class="match-card" data-match-id="match-1" data-match-sport="Pádel" data-match-title="Partido de tarde - 3 plazas" data-match-date="20/05/2026 18:30" data-match-level="Intermedio" data-match-location="Pista de Pádel 2" data-match-total="4" data-match-available="3" data-match-participants="Julián|Avanzado;María|Intermedio;Óscar|Intermedio">
+                    <article class="match-card" data-match-id="match-1" data-match-sport="Pádel" data-match-title="Partido de tarde - 3 plazas" data-match-date="20/05/2026 18:30" data-match-level="Intermedio" data-match-location="Pista de Pádel 2" data-match-total="4" data-match-available="2" data-match-participants="Julián|Avanzado;María|Intermedio">
                         <div class="match-card-header">
                             <span class="match-sport">Pádel</span>
                             <strong>Partido de tarde - 3 plazas</strong>
@@ -149,7 +148,7 @@
                         <p>Ubicación: Pista de Pádel 2</p>
                         <button type="button" class="btn btn-primary btn-join-match">Unirme</button>
                     </article>
-                    <article class="match-card" data-match-id="match-2" data-match-sport="Tenis" data-match-title="Dobles mixto" data-match-date="21/05/2026 17:00" data-match-level="Iniciación / Intermedio" data-match-location="Pista de Tenis 1" data-match-total="4" data-match-available="2" data-match-participants="Lucía|Iniciación;Carlos|Intermedio;Elena|Iniciación">
+                    <article class="match-card" data-match-id="match-2" data-match-sport="Tenis" data-match-title="Dobles mixto" data-match-date="21/05/2026 17:00" data-match-level="Iniciación / Intermedio" data-match-location="Pista de Tenis 1" data-match-total="4" data-match-available="1" data-match-participants="Lucía|Iniciación;Carlos|Intermedio;Elena|Iniciación">
                         <div class="match-card-header">
                             <span class="match-sport">Tenis</span>
                             <strong>Dobles mixto</strong>
@@ -171,34 +170,34 @@
                     <dl class="summary-list">
                         <div>
                             <dt>Deporte</dt>
-                            <dd id="summary-sport">Pádel</dd>
+                            <dd id="summary-sport">--</dd>
                         </div>
                         <div>
                             <dt>Título</dt>
-                            <dd id="summary-title">Sin título</dd>
+                            <dd id="summary-title">--</dd>
                         </div>
                         <div>
                             <dt>Fecha</dt>
-                            <dd id="summary-date">Pendiente</dd>
+                            <dd id="summary-date">--</dd>
                         </div>
                         <div>
                             <dt>Mi nivel</dt>
-                            <dd id="summary-main-level">Intermedio</dd>
+                            <dd id="summary-main-level">--</dd>
                         </div>
                         <div>
                             <dt>Plazas totales</dt>
-                            <dd id="summary-total">4</dd>
+                            <dd id="summary-total">--</dd>
                         </div>
                         <div>
                             <dt>Plazas restantes</dt>
-                            <dd id="summary-available">3</dd>
+                            <dd id="summary-available">--</dd>
                         </div>
                     </dl>
 
                     <div class="summary-members-card">
                         <h3 id="summary-members-title">Jugadores registrados</h3>
                         <ul id="summary-members" class="summary-members">
-                            <li class="empty">Aún no hay jugadores agregados.</li>
+                            <li class="empty">Selecciona un partido para ver los participantes.</li>
                         </ul>
                     </div>
                 </div>
