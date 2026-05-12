@@ -5,7 +5,8 @@
 export const state = {
     // Vista actual: 'open' (Partidos abiertos) o 'create' (Crear reserva)
     // El valor por defecto coincide con el atributo aria-selected="true" del HTML
-    currentView: 'open', 
+    currentView: 'open',
+    filtersVisible: false, 
 
     // Datos del partido que el usuario está intentando crear
     newMatch: {

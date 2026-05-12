@@ -31,7 +31,23 @@
 
                 <div class="matchmaking-tabs" role="tablist">
                     <button id="tab-create" type="button" class="btn btn-tab" role="tab" aria-selected="false">Crear reserva</button>
-                    <button id="tab-open" type="button" class="btn btn-tab btn-tab-active" role="tab" aria-selected="true">Partidos abiertos</button>
+                    <button id="tab-open" type="button" class="btn btn-tab btn-tab-active" role="tab" aria-selected="true">Partidos
+                        abiertos</button>
+                
+                    <button id="toggle-filters-btn" type="button" class="btn btn-tab btn-filter-toggle" aria-label="Mostrar u ocultar filtros">
+                        <svg class="icon-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" y1="21" x2="4" y2="14"></line>
+                            <line x1="4" y1="10" x2="4" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12" y2="3"></line>
+                            <line x1="20" y1="21" x2="20" y2="16"></line>
+                            <line x1="20" y1="12" x2="20" y2="3"></line>
+                            <line x1="1" y1="14" x2="7" y2="14"></line>
+                            <line x1="9" y1="8" x2="15" y2="8"></line>
+                            <line x1="17" y1="16" x2="23" y2="16"></line>
+                        </svg>
+                        <span>Filtros</span>
+                    </button>
                 </div>
 
                 <section id="view-create" class="matchmaking-view matchmaking-view-hidden">
@@ -110,7 +126,7 @@
             </section>
 
             <section id="view-open" class="matchmaking-view matchmaking-view-visible">
-                <div id="filter-panel" class="matchmaking-filters">
+                <div id="filter-panel" class="matchmaking-filters hidden">
                     <div class="filter-panel-header">
                         <h3>Filtros</h3>
                         <button type="button" class="btn btn-secondary btn-clear-filters" id="clear-filters-btn">Limpiar</button>

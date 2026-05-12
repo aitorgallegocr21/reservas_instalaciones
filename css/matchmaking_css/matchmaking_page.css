@@ -68,6 +68,7 @@
 
 
 /* --- FORMULARIOS E INPUTS --- */
+
 .matchmaking-form .field-group {
     display: flex;
     flex-direction: column;
@@ -335,8 +336,33 @@
 }
 
 .matchmaking-page .btn-filter-toggle {
-    margin-left: auto;
-    min-width: 120px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-left: auto; /* Empuja el botón a la derecha del contenedor flex */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border-color) !important;
+    background: var(--bg-header) !important;
+    color: var(--text-main) !important;
+}
+
+/* Icono SVG */
+.icon-filter {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+/* ESTADO ACTIVO: Cuando los filtros están a la vista */
+.btn-filter-toggle.is-active {
+    background: var(--brand-primary) !important;
+    border-color: var(--brand-primary) !important;
+    color: #ffffff !important;
+}
+
+.btn-filter-toggle.is-active .icon-filter {
+    transform: rotate(180deg); /* Pequeño efecto visual al activar */
+    stroke: #ffffff;
 }
 
 .matchmaking-page .btn-filter-toggle.btn-tab-active {
@@ -399,7 +425,19 @@
     border: 1px solid var(--border-color);
     border-radius: 1rem;
     padding: 1.25rem;
-    box-shadow: var(--shadow); 
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+/* El panel de filtros empezará oculto */
+.matchmaking-filters.hidden {
+    display: none;
+}
+
+/* Clase para ocultar con colapso visual */
+.matchmaking-filters.is-collapsed {
+    display: none;
 }
 
 .filter-panel-header {
