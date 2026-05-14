@@ -126,30 +126,33 @@
             </section>
 
             <section id="view-open" class="matchmaking-view matchmaking-view-visible">
-                <div id="filter-panel" class="matchmaking-filters hidden">
-                    <div class="filter-panel-header">
-                        <h3>Filtros</h3>
-                        <button type="button" class="btn btn-secondary btn-clear-filters" id="clear-filters-btn">Limpiar</button>
-                    </div>
-                    <div class="field-group">
-                        <label for="filter-sport">Filtrar por deporte</label>
-                        <select id="filter-sport">
-                            <option value="all">Todos</option>
-                            <option value="Pádel">Pádel</option>
-                            <option value="Tenis">Tenis</option>
-                            <option value="Fútbol">Fútbol</option>
-                            <option value="Baloncesto">Baloncesto</option>
-                            <option value="Natación">Natación</option>
-                        </select>
-                    </div>
-                    <div class="field-group">
-                        <label for="filter-level">Filtrar por nivel</label>
-                        <select id="filter-level">
-                            <option value="all">Todos</option>
-                            <option value="Iniciación">Iniciación</option>
-                            <option value="Intermedio">Intermedio</option>
-                            <option value="Avanzado">Avanzado</option>
-                        </select>
+                <div id="filter-panel" class="matchmaking-filters">
+                    <div class="filter-content-wrapper">
+                        <div class="filter-panel-header">
+                            <h3>Filtros</h3>
+                            <button type="button" class="btn btn-secondary btn-clear-filters"
+                                id="clear-filters-btn">Limpiar</button>
+                        </div>
+                        <div class="field-group">
+                            <label for="filter-sport">Filtrar por deporte</label>
+                            <select id="filter-sport">
+                                <option value="all">Todos</option>
+                                <option value="Pádel">Pádel</option>
+                                <option value="Tenis">Tenis</option>
+                                <option value="Fútbol">Fútbol</option>
+                                <option value="Baloncesto">Baloncesto</option>
+                                <option value="Natación">Natación</option>
+                            </select>
+                        </div>
+                        <div class="field-group">
+                            <label for="filter-level">Filtrar por nivel</label>
+                            <select id="filter-level">
+                                <option value="all">Todos</option>
+                                <option value="Iniciación">Iniciación</option>
+                                <option value="Intermedio">Intermedio</option>
+                                <option value="Avanzado">Avanzado</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <p id="no-matches-message" class="empty hidden">No hay partidos que coincidan con los filtros.</p>
