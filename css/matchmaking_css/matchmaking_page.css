@@ -68,6 +68,7 @@
 
 
 /* --- FORMULARIOS E INPUTS --- */
+
 .matchmaking-form .field-group {
     display: flex;
     flex-direction: column;
@@ -335,8 +336,33 @@
 }
 
 .matchmaking-page .btn-filter-toggle {
-    margin-left: auto;
-    min-width: 120px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-left: auto; /* Empuja el botón a la derecha del contenedor flex */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border-color) !important;
+    background: var(--bg-header) !important;
+    color: var(--text-main) !important;
+}
+
+/* Icono SVG */
+.icon-filter {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+/* ESTADO ACTIVO: Cuando los filtros están a la vista */
+.btn-filter-toggle.is-active {
+    background: var(--brand-primary) !important;
+    border-color: var(--brand-primary) !important;
+    color: #ffffff !important;
+}
+
+.btn-filter-toggle.is-active .icon-filter {
+    transform: rotate(180deg); /* Pequeño efecto visual al activar */
+    stroke: #ffffff;
 }
 
 .matchmaking-page .btn-filter-toggle.btn-tab-active {
@@ -390,16 +416,48 @@
     align-items: center;
 }
 
+/* Contenedor de filtros */
 .matchmaking-filters {
+    display: grid;
+    grid-template-rows: 0fr; 
+    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                padding 0.4s ease, 
+                margin 0.4s ease, 
+                border-color 0.4s ease;
+    
+    /* Eliminamos bordes y paddings que abultan cuando está cerrado */
+    padding: 0 1.25rem; 
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    overflow: hidden;
+    background: var(--bg-header);
+    border-radius: 1rem;
+}
+
+/* Cuando está ACTIVO, expandimos el grid y restauramos visuales */
+.matchmaking-filters.is-open {
+    grid-template-rows: 1fr;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    border-color: var(--border-color);
+}
+
+/* Necesitamos que el contenido interno tenga un contenedor para que el grid funcione */
+.filter-content-wrapper {
+    min-height: 0; /* Crítico para que el truco del grid funcione */
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
-    margin-bottom: 1.5rem;
-    background: var(--bg-header); 
-    border: 1px solid var(--border-color);
-    border-radius: 1rem;
-    padding: 1.25rem;
-    box-shadow: var(--shadow); 
+}
+
+/* El panel de filtros empezará oculto */
+.matchmaking-filters.hidden {
+    display: none;
+}
+
+/* Clase para ocultar con colapso visual */
+.matchmaking-filters.is-collapsed {
+    display: none;
 }
 
 .filter-panel-header {
@@ -418,7 +476,6 @@
     margin: 0;
     font-size: 1rem;
     font-weight: 700;
-    /* CAMBIO: Color de texto principal del tema */
     color: var(--text-main); 
 }
 
@@ -571,5 +628,19 @@
 
     .matchmaking-page {
         padding: 1.5rem 0 3rem;
+    }
+}
+
+/* --- AJUSTE PARA MÓVILES --- */
+@media (max-width: 450px) {
+    .filter-content-wrapper {
+        /* Pasamos de 2 columnas a 1 sola columna vertical */
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    /* Aseguramos que los selectores ocupen todo el ancho disponible */
+    .filter-content-wrapper .field-group {
+        width: 100%;
     }
 }

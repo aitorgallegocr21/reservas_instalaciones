@@ -4,12 +4,20 @@ import { toggleTheme, applySavedTheme } from "./functions/theme-logic.js";
 import { toggleMenu } from "./functions/menu-logic.js";
 import { initFilters } from "./pages/instalaciones/filter-logic.js";
 import { initReservationModal } from "./pages/instalaciones/modal-logic.js";
-import { initMatchmakingPage } from "./pages/matchmaking/matchmaking-logic.js";
+import { initMatchmakingPage } from "./pages/matchmaking/matchmaking-index.js";
 
 
 
-// --- ORQUESTADOR DE TODAS LAS FUNCIONES DE LA PÁGINA WEB COMPLETA --- 
+// --- ORQUESTADOR DE TODAS LAS FUNCIONES --- 
+
+let isAppInitialized = false; // Bandera de control
+
 const initApp = () => {
+    if (isAppInitialized) return; // Si ya se inició, salimos
+    isAppInitialized = true;
+
+    console.log("Inicializando aplicación...");
+
     // Aplica ya un tema si existe en la memoria del navegador
     applySavedTheme();
 
@@ -31,7 +39,8 @@ const initApp = () => {
     initReservationModal(); // <-- INICIALIZACIÓN DEL MODAL
 
     // --- LÓGICA DE MATCHMAKING ---
-    initMatchmakingPage(); // <-- INICIALIZACIÓN DE LA PÁGINA DE MATCHMAKING
+    // Importante: initMatchmakingPage ya tiene su propia comprobación de existencia
+    initMatchmakingPage();
 };
 
 
