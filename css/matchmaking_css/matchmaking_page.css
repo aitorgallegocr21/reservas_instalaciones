@@ -630,3 +630,17 @@
         padding: 1.5rem 0 3rem;
     }
 }
+
+/* --- AJUSTE PARA MÓVILES --- */
+@media (max-width: 450px) {
+    .filter-content-wrapper {
+        /* Pasamos de 2 columnas a 1 sola columna vertical */
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    /* Aseguramos que los selectores ocupen todo el ancho disponible */
+    .filter-content-wrapper .field-group {
+        width: 100%;
+    }
+}
